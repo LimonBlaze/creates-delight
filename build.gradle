@@ -1,0 +1,193 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net' }
+        mavenCentral()
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public' }
+        maven { url = 'https://maven.parchmentmc.org' }
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: "${forgegradle_version}", changing: true
+        classpath "org.spongepowered:mixingradle:${mixingradle_version}"
+        classpath "org.parchmentmc:librarian:${librarian_version}"
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.parchmentmc.librarian.forgegradle'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+apply plugin: 'org.spongepowered.mixin'
+
+version = "${minecraft_version}-${mod_version}"
+group = 'dev.limonblaze.createsdelight'
+archivesBaseName = "createsdelight"
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
+
+minecraft {
+    mappings channel: 'parchment', version: "${parchment_version}-${minecraft_version}"
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            property 'forge.logging.console.level', 'debug'
+
+            property 'forge.enabledGameTestNamespaces', 'createsdelight'
+
+            mods {
+                createsdelight {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        server {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            property 'forge.logging.console.level', 'debug'
+
+            property 'forge.enabledGameTestNamespaces', 'createsdelight'
+
+            mods {
+                createsdelight {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        gameTestServer {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            property 'forge.logging.console.level', 'debug'
+
+            property 'forge.enabledGameTestNamespaces', 'createsdelight'
+
+            mods {
+                createsdelight {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        data {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            property 'forge.logging.console.level', 'debug'
+
+            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
+            args '--mod', 'createsdelight', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+
+            mods {
+                createsdelight {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+repositories {
+    maven {
+        name 'Progwml6 Maven'
+        url 'https://dvs1.progwml6.com/files/maven'
+    }
+    maven {
+        name 'Theillusivec4 Maven'
+        url = "https://maven.theillusivec4.top/"
+    }
+    maven {
+        name 'Tterrag maven'
+        url 'https://maven.tterrag.com'
+    }
+    maven {
+        name = 'Curse Maven'
+        url = "https://www.cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${minecraft_version}-${curios_version}:api")
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${minecraft_version}-${curios_version}")
+    implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-${minecraft_version}:${flywheel_version}")
+    implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
+    implementation fg.deobf("com.simibubi.create:create-${minecraft_version}:${create_version}:slim")
+    implementation fg.deobf("curse.maven:farmersdelight-398521:${farmersdelight_file_id}")
+
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}
+
+mixin {
+    add sourceSets.main, "createsdelight.refmap.json"
+    config 'createsdelight.mixins.json'
+}
+
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
+    exclude '.cache/'
+}
+
+processResources {
+    filesMatching("META-INF/mods.toml") {
+        expand([
+            "mod_version": version,
+            "fml_version": fml_version_spec,
+            "forge_version": forge_version_spec,
+            "minecraft_version": minecraft_version_spec,
+            "create_version": create_version_spec,
+            "farmersdelight_version": farmersdelight_version_spec
+        ])
+    }
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : "createsdelight",
+                "Specification-Vendor"    : "LimonBlaze",
+                "Specification-Version"   : "1",
+                'Implementation-Title'    : project.jar.baseName,
+                'Implementation-Version'  : project.jar.archiveVersion,
+                "Implementation-Vendor"   : "LimonBlaze",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                'MixinConfigs': 'createsdelight.mixins.json'
+        ])
+    }
+}
+
+jar.finalizedBy('reobfJar')
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+        }
+    }
+    repositories {
+        maven {
+            url "file://${project.projectDir}/mcmodsrepo"
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

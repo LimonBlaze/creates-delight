@@ -1,0 +1,40 @@
+modLoader="javafml"
+loaderVersion="${fml_version}"
+license="LGPL-2.1"
+#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
+[[mods]]
+modId="createsdelight"
+version="${mod_version}"
+displayName="Create's Delight'"
+#logoFile="logo.png"
+#credits=""
+authors="LimonBlaze"
+description="Create & Farmer's Delight - It's time for some steampowered delicacies!"
+
+[[dependencies.createsdelight]]
+    modId="forge"
+    mandatory=true
+    versionRange="${forge_version}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.createsdelight]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="${minecraft_version}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.createsdelight]]
+    modId="create"
+    mandatory=true
+    versionRange="${create_version}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.createsdelight]]
+    modId="farmersdelight"
+    mandatory=true
+    versionRange="${farmersdelight_version}"
+    ordering="NONE"
+    side="BOTH"
