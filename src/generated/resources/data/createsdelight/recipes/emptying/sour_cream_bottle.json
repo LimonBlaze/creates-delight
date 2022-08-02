@@ -1,0 +1,14 @@
+{
+  "type": "create:emptying",
+  "ingredients": [
+    {
+      "tag": "forge:bottles/sour_cream"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "createsdelight:sour_cream",
+      "amount": 250
+    }
+  ]
+}

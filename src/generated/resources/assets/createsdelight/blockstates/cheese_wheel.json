@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "createsdelight:block/cheese_wheel_top"
+    },
+    "type=bottom": {
+      "model": "createsdelight:block/cheese_wheel"
+    },
+    "type=double": {
+      "model": "createsdelight:block/cheese_wheel_double"
+    }
+  }
+}

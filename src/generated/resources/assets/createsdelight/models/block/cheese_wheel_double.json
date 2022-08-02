@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "createsdelight:block/cheese_wheel_side",
+    "end": "createsdelight:block/cheese_wheel_top"
+  }
+}

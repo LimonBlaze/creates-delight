@@ -1,0 +1,22 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:cocoa_beans"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "fluid": "create:chocolate",
+      "nbt": {},
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "item": "farmersdelight:hot_cocoa"
+    }
+  ],
+  "heatRequirement": "heated"
+}

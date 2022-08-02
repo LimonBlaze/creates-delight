@@ -1,6 +1,5 @@
 package dev.limonblaze.createsdelight.compat.jei;
 
-import com.simibubi.create.Create;
 import com.simibubi.create.compat.jei.CreateJEI;
 import com.simibubi.create.compat.jei.DoubleItemIcon;
 import com.simibubi.create.compat.jei.EmptyBackground;
@@ -10,7 +9,8 @@ import com.simibubi.create.foundation.config.AllConfigs;
 import com.simibubi.create.foundation.config.CRecipes;
 import com.simibubi.create.foundation.config.ConfigBase;
 import com.simibubi.create.foundation.utility.recipe.IRecipeTypeInfo;
-import dev.limonblaze.createsdelight.util.CrDlLang;
+import dev.limonblaze.createsdelight.CreatesDelight;
+import dev.limonblaze.createsdelight.util.LangUtils;
 import mezz.jei.api.gui.drawable.IDrawable;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
@@ -200,8 +200,9 @@ public class CreateRecipeCategoryBuilder<T extends Recipe<?>> {
         }
         
         CreateRecipeCategory.Info<T> info = new CreateRecipeCategory.Info<>(
-            new mezz.jei.api.recipe.RecipeType<>(Create.asResource(name), recipeClass),
-            CrDlLang.translate("recipe." + name).component(), background, icon, recipesSupplier, catalysts);
+            new mezz.jei.api.recipe.RecipeType<>(CreatesDelight.asResource(name), recipeClass),
+            LangUtils.translate("recipe", name),
+            background, icon, recipesSupplier, catalysts);
         return factory.create(info);
     }
     

@@ -1,0 +1,22 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:nether_wart"
+    },
+    {
+      "fluidTag": "forge:cream",
+      "amount": 1000
+    }
+  ],
+  "results": [
+    {
+      "fluid": "createsdelight:sour_cream",
+      "amount": 1000
+    }
+  ],
+  "heatRequirement": "heated"
+}

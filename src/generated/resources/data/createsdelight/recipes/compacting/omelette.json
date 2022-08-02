@@ -1,0 +1,15 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "fluidTag": "forge:egg",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "item": "createsdelight:omelette"
+    }
+  ],
+  "heatRequirement": "heated"
+}

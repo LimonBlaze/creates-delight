@@ -1,0 +1,28 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "farmersdelight:pumpkin_slice"
+    },
+    {
+      "tag": "forge:salad_ingredients"
+    },
+    {
+      "tag": "forge:raw_pork"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "fluid": "minecraft:milk",
+      "nbt": {},
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "item": "farmersdelight:pumpkin_soup"
+    }
+  ],
+  "heatRequirement": "heated"
+}

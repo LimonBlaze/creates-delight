@@ -1,0 +1,14 @@
+{
+  "type": "create:emptying",
+  "ingredients": [
+    {
+      "tag": "forge:bottles/yogurt"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "createsdelight:yogurt",
+      "amount": 250
+    }
+  ]
+}

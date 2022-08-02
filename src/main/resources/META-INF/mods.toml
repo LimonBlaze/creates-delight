@@ -1,11 +1,11 @@
 modLoader="javafml"
 loaderVersion="${fml_version}"
 license="LGPL-2.1"
-#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
+issueTrackerURL="https://github.com/LimonBlaze/creates-delight/issues"
 [[mods]]
 modId="createsdelight"
 version="${mod_version}"
-displayName="Create's Delight'"
+displayName="Create's Delight"
 #logoFile="logo.png"
 #credits=""
 authors="LimonBlaze"
@@ -29,12 +29,12 @@ description="Create & Farmer's Delight - It's time for some steampowered delicac
     modId="create"
     mandatory=true
     versionRange="${create_version}"
-    ordering="NONE"
+    ordering="BEFORE"
     side="BOTH"
 
 [[dependencies.createsdelight]]
     modId="farmersdelight"
     mandatory=true
     versionRange="${farmersdelight_version}"
-    ordering="NONE"
+    ordering="BEFORE"
     side="BOTH"

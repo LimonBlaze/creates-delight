@@ -1,0 +1,23 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "createsdelight:salt"
+    },
+    {
+      "fluidTag": "forge:yogurt",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "fluid": "createsdelight:sour_cream",
+      "amount": 125
+    },
+    {
+      "fluid": "createsdelight:cheese",
+      "amount": 125
+    }
+  ],
+  "heatRequirement": "heated"
+}

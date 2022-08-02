@@ -1,0 +1,15 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "tag": "forge:cheese"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "createsdelight:cheese",
+      "amount": 250
+    }
+  ],
+  "heatRequirement": "heated"
+}

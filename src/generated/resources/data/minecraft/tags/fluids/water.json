@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "createsdelight:flowing_yogurt",
+    "createsdelight:yogurt",
+    "createsdelight:flowing_cream",
+    "createsdelight:cream",
+    "createsdelight:flowing_sour_cream",
+    "createsdelight:sour_cream",
+    "createsdelight:flowing_cheese",
+    "createsdelight:cheese",
+    "createsdelight:flowing_butter",
+    "createsdelight:butter",
+    "createsdelight:flowing_tomato_sauce",
+    "createsdelight:tomato_sauce",
+    "createsdelight:flowing_egg",
+    "createsdelight:egg"
+  ]
+}

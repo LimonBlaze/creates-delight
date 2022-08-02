@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "side": "createsdelight:block/cheese_wheel_side",
+    "bottom": "createsdelight:block/cheese_wheel_top",
+    "top": "createsdelight:block/cheese_wheel_top"
+  }
+}

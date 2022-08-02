@@ -1,0 +1,17 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "fluidTag": "forge:sour_cream",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "item": "createsdelight:sour_cream_bottle"
+    }
+  ]
+}

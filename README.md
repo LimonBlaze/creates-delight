@@ -11,5 +11,5 @@ Supported Minecraft versions are list below, backport is only considered after a
 ## Features
 **Automatic Recipe Transformation**: 
 Create's Delight will automatically transform loaded recipes and add them to the RecipeManager. <br/>
-CuttingBoardRecipe (Farmer's Delight) → ToolApplicationRecipe (Create's Delight), uses deployers to perform. <br/>
-CookingPotRecipe (Farmer's Delight) → MixingRecipe (Create), uses mechanical mixer and basin to perform. <br/>
+Cutting (Farmer's Delight) → Manual Application (Create), uses hand or deployers to perform. <br/>
+Cooking (Farmer's Delight) → Mixing (Create), uses mechanical mixer and basin to perform. <br/>

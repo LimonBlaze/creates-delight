@@ -1,0 +1,15 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "createsdelight:cheese_wheel"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "createsdelight:cheese",
+      "amount": 1000
+    }
+  ],
+  "heatRequirement": "heated"
+}

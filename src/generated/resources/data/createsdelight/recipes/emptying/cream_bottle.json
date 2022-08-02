@@ -1,0 +1,14 @@
+{
+  "type": "create:emptying",
+  "ingredients": [
+    {
+      "tag": "forge:bottles/cream"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "createsdelight:cream",
+      "amount": 250
+    }
+  ]
+}

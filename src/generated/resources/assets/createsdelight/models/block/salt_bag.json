@@ -1,0 +1,7 @@
+{
+  "parent": "farmersdelight:block/rice_bag",
+  "textures": {
+    "particle": "createsdelight:block/salt_bag_top",
+    "up": "createsdelight:block/salt_bag_top"
+  }
+}

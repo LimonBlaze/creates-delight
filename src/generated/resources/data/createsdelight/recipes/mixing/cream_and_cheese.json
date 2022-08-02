@@ -1,0 +1,24 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "createsdelight:salt"
+    },
+    {
+      "fluid": "minecraft:milk",
+      "nbt": {},
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "fluid": "createsdelight:cream",
+      "amount": 125
+    },
+    {
+      "fluid": "createsdelight:cheese",
+      "amount": 125
+    }
+  ],
+  "heatRequirement": "heated"
+}

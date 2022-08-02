@@ -1,0 +1,17 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "fluidTag": "forge:yogurt",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "item": "createsdelight:yogurt_bottle"
+    }
+  ]
+}

@@ -227,7 +227,7 @@ public class PartialLangMerger implements DataProvider {
                     break;
                 if(!readLine.endsWith(".json"))
                     continue;
-                if(readLine.startsWith("en_us") || readLine.startsWith("en_ud"))
+                if(readLine.startsWith("en_us"))
                     continue;
                 list.add(Pair.of(readLine, FilesHelper.loadJsonResource(filepath + readLine)));
             }

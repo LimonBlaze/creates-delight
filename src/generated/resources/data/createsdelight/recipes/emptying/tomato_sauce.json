@@ -1,0 +1,14 @@
+{
+  "type": "create:emptying",
+  "ingredients": [
+    {
+      "item": "farmersdelight:tomato_sauce"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "createsdelight:tomato_sauce",
+      "amount": 250
+    }
+  ]
+}
