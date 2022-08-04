@@ -21,32 +21,7 @@ import javax.annotation.Nonnull;
 public class MixingRecipeGen extends ProcessingRecipeGen {
     
     GeneratedRecipe
-    FRIED_RICE = create(ModHelper.FD.asResource("cooking/fried_rice"),
-        builder -> builder
-            .require(ForgeTags.CROPS_RICE)
-            .require(TagHelper.Fluids.EGG, 125)
-            .require(Items.CARROT)
-            .require(ForgeTags.CROPS_ONION)
-            .requiresHeat(HeatCondition.HEATED)
-            .output(ModItems.FRIED_RICE.get())
-    ),
-    HOT_COCOA = create(ModHelper.FD.asResource("cooking/hot_cocoa"),
-        builder -> builder
-            .require(AllFluids.CHOCOLATE.get(), 250)
-            .require(Items.COCOA_BEANS)
-            .require(Items.GLASS_BOTTLE)
-            .requiresHeat(HeatCondition.HEATED)
-            .output(ModItems.HOT_COCOA.get())),
-    PUMPKIN_SOUP = create(ModHelper.FD.asResource("cooking/pumpkin_soup"),
-        builder -> builder
-            .require(ModItems.PUMPKIN_SLICE.get())
-            .require(ForgeTags.SALAD_INGREDIENTS)
-            .require(ForgeTags.RAW_PORK)
-            .require(ForgeMod.MILK.get(), 250)
-            .require(Items.BOWL)
-            .requiresHeat(HeatCondition.HEATED)
-            .output(ModItems.PUMPKIN_SOUP.get())),
-    TOMATO_SAUCE = create(ModHelper.FD.asResource("cooking/tomato_sauce"),
+    TOMATO_SAUCE = create("tomato_sauce",
         builder -> builder
             .require(ModItems.TOMATO.get())
             .require(ModItems.TOMATO.get())

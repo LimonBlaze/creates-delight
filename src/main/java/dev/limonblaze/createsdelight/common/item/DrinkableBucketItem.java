@@ -1,5 +1,6 @@
 package dev.limonblaze.createsdelight.common.item;
 
+import dev.limonblaze.createsdelight.core.duck.ConsumableItemHelper;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.nbt.CompoundTag;
@@ -28,7 +29,7 @@ import java.util.function.Supplier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class DrinkableBucketItem extends BucketItem implements IntegratedConsumableItem {
+public class DrinkableBucketItem extends BucketItem implements ConsumableItemHelper {
     private final boolean hasFoodEffectTooltip;
     private final boolean hasCustomTooltip;
     

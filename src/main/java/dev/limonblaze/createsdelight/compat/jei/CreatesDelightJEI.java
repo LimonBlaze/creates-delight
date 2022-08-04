@@ -1,7 +1,12 @@
 package dev.limonblaze.createsdelight.compat.jei;
 
+import com.simibubi.create.AllBlocks;
+import com.simibubi.create.AllItems;
 import com.simibubi.create.compat.jei.category.CreateRecipeCategory;
 import dev.limonblaze.createsdelight.CreatesDelight;
+import dev.limonblaze.createsdelight.common.recipe.CuttingBoardDeployingRecipe;
+import dev.limonblaze.createsdelight.common.registry.CreatesDelightRecipeTypes;
+import dev.limonblaze.createsdelight.compat.jei.category.CuttingBoardDeployingCategory;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.recipe.category.IRecipeCategory;
@@ -11,6 +16,7 @@ import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.runtime.IIngredientManager;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.resources.ResourceLocation;
+import vectorwing.farmersdelight.common.registry.ModBlocks;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
@@ -28,7 +34,15 @@ public class CreatesDelightJEI implements IModPlugin {
     
     private void loadCategories() {
         allCategories.clear();
-        
+        allCategories.add(new CreateRecipeCategoryBuilder<>(CuttingBoardDeployingRecipe.class)
+            .addTypedRecipes(CreatesDelightRecipeTypes.CUTTING_BOARD_DEPLOYING)
+            .catalyst(AllBlocks.DEPLOYER::get)
+            .catalyst(AllBlocks.DEPOT::get)
+            .catalyst(AllItems.BELT_CONNECTOR::get)
+            .doubleItemIcon(AllBlocks.DEPLOYER.get(), ModBlocks.CUTTING_BOARD.get())
+            .emptyBackground(177, 70)
+            .build("cutting_board_deploying", CuttingBoardDeployingCategory::new)
+        );
     }
     
     @Override

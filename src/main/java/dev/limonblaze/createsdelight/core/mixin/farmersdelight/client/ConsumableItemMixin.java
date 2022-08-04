@@ -1,6 +1,6 @@
 package dev.limonblaze.createsdelight.core.mixin.farmersdelight.client;
 
-import dev.limonblaze.createsdelight.common.item.IntegratedConsumableItem;
+import dev.limonblaze.createsdelight.core.duck.ConsumableItemHelper;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
@@ -24,7 +24,7 @@ import java.util.List;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 @Mixin(ConsumableItem.class)
-public abstract class ConsumableItemMixin extends Item implements IntegratedConsumableItem {
+public abstract class ConsumableItemMixin extends Item implements ConsumableItemHelper {
     
     @Shadow(remap = false) @Final private boolean hasCustomTooltip;
     
@@ -49,7 +49,7 @@ public abstract class ConsumableItemMixin extends Item implements IntegratedCons
     /**
      * @author LimonBlaze
      * @reason Overwriting this for integration purpose, shouldn't affect original function. <br/>
-     * See also {@linkplain IntegratedConsumableItem}.
+     * See also {@linkplain ConsumableItemHelper}.
      */
     @Overwrite
     @OnlyIn(Dist.CLIENT)

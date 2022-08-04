@@ -1,5 +1,6 @@
 package dev.limonblaze.createsdelight.common.item;
 
+import dev.limonblaze.createsdelight.core.duck.ConsumableItemHelper;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -11,7 +12,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class EffectCuringBottleItem extends MilkBottleItem implements IntegratedConsumableItem {
+public class EffectCuringBottleItem extends MilkBottleItem implements ConsumableItemHelper {
     private final boolean hasFoodEffectTooltips;
     
     public EffectCuringBottleItem(Properties properties, boolean hasFoodEffectTooltips) {

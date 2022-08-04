@@ -5,6 +5,7 @@ import com.simibubi.create.content.contraptions.processing.ProcessingRecipeSeria
 import com.simibubi.create.foundation.utility.Lang;
 import com.simibubi.create.foundation.utility.recipe.IRecipeTypeInfo;
 import dev.limonblaze.createsdelight.CreatesDelight;
+import dev.limonblaze.createsdelight.common.recipe.CuttingBoardDeployingRecipe;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
@@ -21,7 +22,7 @@ import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(modid = CreatesDelight.ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public enum CreatesDelightRecipeTypes implements IRecipeTypeInfo {
-    ;
+    CUTTING_BOARD_DEPLOYING(CuttingBoardDeployingRecipe::new);
     
     private final ResourceLocation id;
     private final Supplier<RecipeSerializer<?>> serializerSupplier;

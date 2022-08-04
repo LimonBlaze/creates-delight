@@ -9,7 +9,7 @@ Supported Minecraft versions are list below, backport is only considered after a
 | 1.18.2  | Active  |
 
 ## Features
-**Automatic Recipe Transformation**: 
-Create's Delight will automatically transform loaded recipes and add them to the RecipeManager. <br/>
-Cutting (Farmer's Delight) → Manual Application (Create), uses hand or deployers to perform. <br/>
-Cooking (Farmer's Delight) → Mixing (Create), uses mechanical mixer and basin to perform. <br/>
+**Cutting Board Recipes on Belt and Deployer**: 
+Cutting board recipes are now available on Belt and Deployer.
+**Mechanical Arm Based Cooking Pot automation**: 
+Mechanical arm can now transfer items from and to cooking pots.

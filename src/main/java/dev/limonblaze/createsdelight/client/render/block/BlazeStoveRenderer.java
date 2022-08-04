@@ -8,7 +8,7 @@ import com.simibubi.create.foundation.utility.AngleHelper;
 import dev.limonblaze.createsdelight.common.block.entity.BlazeStoveBlockEntity;
 import dev.limonblaze.createsdelight.core.mixin.create.access.BlazeBurnerRendererAccessor;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.LightTexture;
+import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
@@ -32,6 +32,7 @@ public class BlazeStoveRenderer extends SafeTileEntityRenderer<BlazeStoveBlockEn
     }
     
     protected void renderItem(BlazeStoveBlockEntity stove, PoseStack poseStack, MultiBufferSource buffer, int overlay) {
+        int light = LevelRenderer.getLightColor(stove.getLevel(), stove.getBlockPos().above());
         Direction direction = stove.getBlockState().getValue(StoveBlock.FACING).getOpposite();
         ItemStackHandler inventory = stove.getInventory();
         int seed = (int)stove.getBlockPos().asLong();
@@ -45,10 +46,10 @@ public class BlazeStoveRenderer extends SafeTileEntityRenderer<BlazeStoveBlockEn
                 poseStack.mulPose(Vector3f.YP.rotationDegrees(directionRot));
                 poseStack.mulPose(Vector3f.XP.rotationDegrees(90.0F));
                 poseStack.translate(((i % 3) - 1) * 5D / 16D, ((i / 3) - 1) * 5D / 16D, 0.0D);
-                poseStack.scale(0.25F, 0.25F, 0.25F);
+                poseStack.scale(0.3125F, 0.3125F, 0.3125F);
                 Minecraft.getInstance().getItemRenderer().renderStatic(
                     stack, ItemTransforms.TransformType.FIXED,
-                    LightTexture.FULL_BRIGHT, overlay,
+                    light, overlay,
                     poseStack, buffer, seed + i
                 );
                 poseStack.popPose();

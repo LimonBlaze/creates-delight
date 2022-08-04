@@ -1,4 +1,4 @@
-package dev.limonblaze.createsdelight.common.item;
+package dev.limonblaze.createsdelight.core.duck;
 
 import dev.limonblaze.createsdelight.core.mixin.farmersdelight.client.ConsumableItemMixin;
 import dev.limonblaze.createsdelight.util.LangUtils;
@@ -20,7 +20,7 @@ import java.util.List;
  * Allows dynamic custom tooltips and food effect tooltip conditions. <br/>
  * See also {@linkplain ConsumableItemMixin}
  */
-public interface IntegratedConsumableItem {
+public interface ConsumableItemHelper {
     
     default Item self() {
         return (Item) this;
