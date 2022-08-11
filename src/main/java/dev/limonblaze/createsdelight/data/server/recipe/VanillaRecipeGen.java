@@ -2,10 +2,10 @@ package dev.limonblaze.createsdelight.data.server.recipe;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.simibubi.create.AllBlocks;
 import com.tterrag.registrate.util.entry.ItemProviderEntry;
-import dev.limonblaze.createsdelight.common.registry.CreatesDelightBlocks;
-import dev.limonblaze.createsdelight.common.registry.CreatesDelightItems;
-import dev.limonblaze.createsdelight.common.tag.TagHelper;
+import dev.limonblaze.createsdelight.common.registry.CDBlocks;
+import dev.limonblaze.createsdelight.common.registry.CDItems;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.DataGenerator;
@@ -56,35 +56,48 @@ import java.util.function.UnaryOperator;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE <br/>
  * SOFTWARE. <br/>
  */
-@SuppressWarnings("unused")
-public class VanillaRecipeGen extends CreatesDelightRecipeProvider {
+public class VanillaRecipeGen extends CDRecipeProvider {
     
     private final String modid;
     private String currentFolder = "";
     
+    Marker UTILITY = enterFolder("utility");
+    
+    GeneratedRecipe
+    STEAM_POT = create(CDBlocks.STEAM_POT)
+        .unlockedBy(() -> AllBlocks.FLUID_TANK.get().asItem())
+        .viaShaped(b -> b
+        .define('g', CommonIngredients.GOLD_PLATE)
+        .define('c', CommonIngredients.COPPER_NUGGET)
+        .define('b', Items.BUCKET)
+        .define('C', CommonIngredients.COPPER_INGOT)
+        .pattern(" g ")
+        .pattern("cbc")
+        .pattern(" C "));
+    
     Marker INGREDIENT = enterFolder("ingredient");
     
     GeneratedRecipe
-    SUGAR_BAG = create(CreatesDelightBlocks.SUGAR_BAG)
+    SUGAR_BAG = create(CDBlocks.SUGAR_BAG)
         .unlockedBy(() -> Items.SUGAR)
         .viaShapeless(b -> b.requires(Items.SUGAR, 9)),
     SUGAR_FROM_BAG = create(() -> Items.SUGAR)
         .returns(9)
         .withSuffix("from_bag")
-        .unlockedBy(CreatesDelightBlocks.SUGAR_BAG)
-        .viaShapeless(b -> b.requires(CreatesDelightBlocks.SUGAR_BAG.get())),
-    SALT_BAG = create(CreatesDelightBlocks.SALT_BAG)
-        .unlockedBy(CreatesDelightItems.SALT)
-        .viaShapeless(b -> b.requires(Ingredient.of(TagHelper.Items.DUSTS$SALT), 9)),
-    SALT_FROM_BAG = create(CreatesDelightItems.SALT)
+        .unlockedBy(CDBlocks.SUGAR_BAG)
+        .viaShapeless(b -> b.requires(CDBlocks.SUGAR_BAG.get())),
+    SALT_BAG = create(CDBlocks.SALT_BAG)
+        .unlockedBy(CDItems.SALT)
+        .viaShapeless(b -> b.requires(CommonIngredients.SALT, 9)),
+    SALT_FROM_BAG = create(CDItems.SALT)
         .returns(9)
         .withSuffix("from_bag")
-        .unlockedBy(CreatesDelightBlocks.SALT_BAG)
-        .viaShapeless(b -> b.requires(CreatesDelightBlocks.SALT_BAG.get())),
-    CHEESE_WHEEL = create(CreatesDelightBlocks.CHEESE_WHEEL)
-        .unlockedBy(CreatesDelightItems.CHEESE)
+        .unlockedBy(CDBlocks.SALT_BAG)
+        .viaShapeless(b -> b.requires(CDBlocks.SALT_BAG.get())),
+    CHEESE_WHEEL = create(CDBlocks.CHEESE_WHEEL)
+        .unlockedBy(CDItems.CHEESE)
         .viaShaped(b -> b
-        .define('c', CreatesDelightItems.CHEESE.get())
+        .define('c', CDItems.CHEESE.get())
         .pattern("cc")
         .pattern("cc"));
     
@@ -96,7 +109,7 @@ public class VanillaRecipeGen extends CreatesDelightRecipeProvider {
     @Override
     @Nonnull
     public String getName() {
-        return "Create's Delight: Vanilla Recipes";
+        return "Vanilla Recipes";
     }
     
     public Marker enterFolder(String folder) {
@@ -267,7 +280,6 @@ public class VanillaRecipeGen extends CreatesDelightRecipeProvider {
             return inFurnace(b -> b);
         }
     
-        @SuppressWarnings("SameReturnValue")
         public GeneratedRecipe inFurnace(UnaryOperator<SimpleCookingRecipeBuilder> builder) {
             create(FURNACE, builder, 1);
             return null;
@@ -277,7 +289,6 @@ public class VanillaRecipeGen extends CreatesDelightRecipeProvider {
             return inSmoker(b -> b);
         }
     
-        @SuppressWarnings("SameReturnValue")
         public GeneratedRecipe inSmoker(UnaryOperator<SimpleCookingRecipeBuilder> builder) {
             create(FURNACE, builder, 1);
             create(CAMPFIRE, builder, 3);
@@ -289,7 +300,6 @@ public class VanillaRecipeGen extends CreatesDelightRecipeProvider {
             return inBlastFurnace(b -> b);
         }
     
-        @SuppressWarnings("SameReturnValue")
         public GeneratedRecipe inBlastFurnace(UnaryOperator<SimpleCookingRecipeBuilder> builder) {
             create(FURNACE, builder, 1);
             create(BLAST, builder, .5f);

@@ -3,7 +3,11 @@
   "ingredients": [
     {
       "fluidTag": "forge:egg",
-      "amount": 250
+      "amount": 125
+    },
+    {
+      "fluidTag": "forge:cream",
+      "amount": 125
     }
   ],
   "results": [

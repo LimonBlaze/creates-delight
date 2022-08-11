@@ -1,8 +1,8 @@
 package dev.limonblaze.createsdelight.data.server.recipe;
 
 import dev.limonblaze.createsdelight.CreatesDelight;
-import dev.limonblaze.createsdelight.common.registry.CreatesDelightBlocks;
-import dev.limonblaze.createsdelight.common.registry.CreatesDelightItems;
+import dev.limonblaze.createsdelight.common.registry.CDBlocks;
+import dev.limonblaze.createsdelight.common.registry.CDItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -12,12 +12,12 @@ import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
 import javax.annotation.Nonnull;
 
-public class CuttingBoardRecipeGen extends CreatesDelightRecipeProvider {
+public class CuttingBoardRecipeGen extends CDRecipeProvider {
     
     GeneratedRecipe
     CHEESE_FROM_CHEESE_WHEEL = createKnives("cheese_from_cheese_wheel",
-        Ingredient.of(CreatesDelightBlocks.CHEESE_WHEEL.get()),
-        CreatesDelightItems.CHEESE.get(), 4
+        Ingredient.of(CDBlocks.CHEESE_WHEEL.get()),
+        CDItems.CHEESE.get(), 4
     );
     
     public CuttingBoardRecipeGen(DataGenerator generator) {
@@ -27,7 +27,7 @@ public class CuttingBoardRecipeGen extends CreatesDelightRecipeProvider {
     @Override
     @Nonnull
     public String getName() {
-        return "Create's Delight: Cutting Board Recipes";
+        return "Cutting Board Recipes";
     }
     
     public GeneratedRecipe create(ResourceLocation id, Ingredient ingredient, Ingredient tool, ItemLike mainResult, int count) {

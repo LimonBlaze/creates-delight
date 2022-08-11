@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    "createsdelight:cheese_wheel",
+    "createsdelight:hot_dog",
+    "createsdelight:cheese_burger",
+    "createsdelight:pork_omelette_burger",
+    "createsdelight:cod_sandwich",
+    "createsdelight:salmon_sandwich",
+    "createsdelight:incomplete_apple_pie",
+    "createsdelight:incomplete_sweet_berry_cheesecake",
+    "createsdelight:incomplete_egg_sandwich",
+    "createsdelight:incomplete_chicken_sandwich",
+    "createsdelight:incomplete_hot_dog",
+    "createsdelight:incomplete_hamburger",
+    "createsdelight:incomplete_cheese_burger",
+    "createsdelight:incomplete_pork_omelette_burger",
+    "createsdelight:incomplete_bacon_sandwich",
+    "createsdelight:incomplete_cod_sandwich",
+    "createsdelight:incomplete_salmon_sandwich",
+    "createsdelight:incomplete_omelette_rice",
+    "#forge:foods/has_container",
+    "farmersdelight:bacon_sandwich",
+    "farmersdelight:chicken_sandwich",
+    "farmersdelight:egg_sandwich",
+    "farmersdelight:hamburger",
+    "farmersdelight:mutton_wrap"
+  ]
+}

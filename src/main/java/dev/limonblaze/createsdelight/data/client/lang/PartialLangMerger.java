@@ -51,7 +51,6 @@ import java.util.Map.Entry;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE <br/>
  * SOFTWARE. <br/>
  */
-@SuppressWarnings("unused")
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 public class PartialLangMerger implements DataProvider {

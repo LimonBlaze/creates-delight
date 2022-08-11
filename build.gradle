@@ -158,7 +158,8 @@ processResources {
             "forge_version": forge_version_spec,
             "minecraft_version": minecraft_version_spec,
             "create_version": create_version_spec,
-            "farmersdelight_version": farmersdelight_version_spec
+            "farmersdelight_version": farmersdelight_version_spec,
+            "flywheel_version": flywheel_version_spec
         ])
     }
 }

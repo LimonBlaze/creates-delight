@@ -1,13 +1,11 @@
 package dev.limonblaze.createsdelight.common.block;
 
-import com.simibubi.create.AllItems;
-import com.simibubi.create.content.contraptions.fluids.tank.BoilerHeaters;
 import com.simibubi.create.content.contraptions.processing.BasinTileEntity;
 import com.simibubi.create.content.contraptions.processing.burner.BlazeBurnerBlock;
 import com.simibubi.create.content.contraptions.wrench.IWrenchable;
 import com.simibubi.create.foundation.block.ITE;
 import dev.limonblaze.createsdelight.common.block.entity.BlazeStoveBlockEntity;
-import dev.limonblaze.createsdelight.common.registry.CreatesDelightBlockEntities;
+import dev.limonblaze.createsdelight.common.registry.CDBlockEntities;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
@@ -29,8 +27,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
@@ -50,7 +46,6 @@ import java.util.Random;
 @ParametersAreNonnullByDefault
 public class BlazeStoveBlock extends HorizontalDirectionalBlock implements ITE<BlazeStoveBlockEntity>, IWrenchable {
     public static final EnumProperty<BlazeBurnerBlock.HeatLevel> HEAT_LEVEL = BlazeBurnerBlock.HEAT_LEVEL;
-    public static final BooleanProperty LIT = BlockStateProperties.LIT;
     private static final VoxelShape SHAPE = Shapes.or(
         Block.box(2, 0, 2, 14, 5, 14),
         Block.box(1, 5, 1, 15, 15, 15),
@@ -61,15 +56,13 @@ public class BlazeStoveBlock extends HorizontalDirectionalBlock implements ITE<B
         super(properties);
         registerDefaultState(defaultBlockState()
             .setValue(HEAT_LEVEL, BlazeBurnerBlock.HeatLevel.SMOULDERING)
-            .setValue(LIT, false)
         );
-        BoilerHeaters.registerHeater(this.delegate, this::getActiveHeat);
     }
     
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
-        builder.add(HEAT_LEVEL, LIT, FACING);
+        builder.add(HEAT_LEVEL, FACING);
     }
     
     @Override
@@ -85,24 +78,6 @@ public class BlazeStoveBlock extends HorizontalDirectionalBlock implements ITE<B
     public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand,
                                  BlockHitResult blockRayTraceResult) {
         ItemStack heldItem = player.getItemInHand(hand);
-        BlazeBurnerBlock.HeatLevel heat = state.getValue(HEAT_LEVEL);
-        
-        if(AllItems.GOGGLES.isIn(heldItem) && heat != BlazeBurnerBlock.HeatLevel.NONE)
-            return onTileEntityUse(world, pos, stove -> {
-                if(stove.getGoggles()) return InteractionResult.PASS;
-                stove.setGoggles(true);
-                stove.notifyUpdate();
-                return InteractionResult.SUCCESS;
-            });
-        
-        if(heldItem.isEmpty() && heat != BlazeBurnerBlock.HeatLevel.NONE)
-            return onTileEntityUse(world, pos, stove -> {
-                if(!stove.getGoggles()) return InteractionResult.PASS;
-                stove.setGoggles(false);
-                stove.notifyUpdate();
-                return InteractionResult.SUCCESS;
-            });
-        
         boolean noConsume = player.isCreative();
         boolean forceOverflow = !(player instanceof FakePlayer);
         
@@ -156,7 +131,7 @@ public class BlazeStoveBlock extends HorizontalDirectionalBlock implements ITE<B
     
     @Override
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
-        float damage = Math.max(0, this.getActiveHeat(level, pos, state));
+        float damage = getActiveHeat(level, pos, state);
         if(damage > 0
         && !entity.fireImmune()
         && entity instanceof LivingEntity living
@@ -166,18 +141,13 @@ public class BlazeStoveBlock extends HorizontalDirectionalBlock implements ITE<B
         super.stepOn(level, pos, state, entity);
     }
     
-    public float getActiveHeat(Level level, BlockPos pos, BlockState state) {
-        BlazeBurnerBlock.HeatLevel value = state.getValue(BlazeBurnerBlock.HEAT_LEVEL);
-        if(value == BlazeBurnerBlock.HeatLevel.NONE) {
-            return -1;
-        }
-        if(value == BlazeBurnerBlock.HeatLevel.SEETHING) {
-            return 2;
-        }
-        if(value.isAtLeast(BlazeBurnerBlock.HeatLevel.FADING)) {
-            return 1;
-        }
-        return 0;
+    public static float getActiveHeat(Level level, BlockPos pos, BlockState state) {
+        return switch(state.getValue(BlazeBurnerBlock.HEAT_LEVEL)) {
+            case SEETHING -> 2;
+            case KINDLED, FADING -> 1;
+            case SMOULDERING -> 0;
+            default -> -1;
+        };
     }
     
     @Override
@@ -224,7 +194,7 @@ public class BlazeStoveBlock extends HorizontalDirectionalBlock implements ITE<B
     
     @Override
     public BlockEntityType<? extends BlazeStoveBlockEntity> getTileEntityType() {
-        return CreatesDelightBlockEntities.BLAZE_STOVE.get();
+        return CDBlockEntities.BLAZE_STOVE.get();
     }
     
 }

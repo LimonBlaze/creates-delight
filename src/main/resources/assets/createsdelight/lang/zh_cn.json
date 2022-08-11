@@ -1,0 +1,77 @@
+{
+
+	"_": "->------------------------]  Game Elements  [------------------------<-",
+
+	"block.createsdelight.blaze_stove": "烈焰炉灶",
+	"block.createsdelight.butter": "黄油",
+	"block.createsdelight.cheese": "奶酪",
+	"block.createsdelight.cheese_wheel": "奶酪轮",
+	"block.createsdelight.cream": "奶油",
+	"block.createsdelight.egg": "蛋",
+	"block.createsdelight.salt_bag": "盐袋",
+	"block.createsdelight.sour_cream": "酸奶油",
+	"block.createsdelight.steam_pot": "蒸锅",
+	"block.createsdelight.sugar_bag": "糖袋",
+	"block.createsdelight.tomato_sauce": "番茄酱",
+	"block.createsdelight.yogurt": "酸奶",
+
+	"effect.createsdelight.appetizing": "开胃",
+	"effect.createsdelight.greasy": "油腻",
+
+	"item.createsdelight.blazeroni": "下界红肠",
+	"item.createsdelight.butter": "黄油",
+	"item.createsdelight.butter_bucket": "黄油桶",
+	"item.createsdelight.cheese": "奶酪",
+	"item.createsdelight.cheese_bucket": "奶酪桶",
+	"item.createsdelight.cheese_burger": "奶酪汉堡",
+	"item.createsdelight.cod_sandwich": "鳕鱼三明治",
+	"item.createsdelight.cream_bottle": "奶油瓶",
+	"item.createsdelight.cream_bucket": "奶油桶",
+	"item.createsdelight.egg_bucket": "蛋液桶",
+	"item.createsdelight.hot_dog": "热狗",
+	"item.createsdelight.incomplete_apple_pie": "未完成的苹果派",
+	"item.createsdelight.incomplete_bacon_sandwich": "未完成的培根三明治",
+	"item.createsdelight.incomplete_cheese_burger": "未完成的奶酪汉堡",
+	"item.createsdelight.incomplete_chicken_sandwich": "未完成的鸡肉三明治",
+	"item.createsdelight.incomplete_cod_sandwich": "未完成的鳕鱼三明治",
+	"item.createsdelight.incomplete_egg_sandwich": "未完成的鸡蛋三明治",
+	"item.createsdelight.incomplete_hamburger": "未完成的汉堡",
+	"item.createsdelight.incomplete_hot_dog": "未完成的热狗",
+	"item.createsdelight.incomplete_omelette_rice": "未完成的蛋包饭",
+	"item.createsdelight.incomplete_pork_omelette_burger": "未完成的猪柳蛋汉堡",
+	"item.createsdelight.incomplete_salmon_sandwich": "未完成的鲑鱼三明治",
+	"item.createsdelight.incomplete_sweet_berry_cheesecake": "未完成的甜浆果芝士派",
+	"item.createsdelight.omelette": "欧姆蛋",
+	"item.createsdelight.omelette_rice": "蛋包饭",
+	"item.createsdelight.pork_omelette_burger": "猪柳蛋汉堡",
+	"item.createsdelight.salmon_sandwich": "鲑鱼三明治",
+	"item.createsdelight.salt": "盐",
+	"item.createsdelight.sour_cream_bottle": "酸奶油瓶",
+	"item.createsdelight.sour_cream_bucket": "酸奶油",
+	"item.createsdelight.tomato_sauce_bucket": "番茄酱桶",
+	"item.createsdelight.yogurt_bottle": "酸奶瓶",
+	"item.createsdelight.yogurt_bucket": "酸奶桶",
+
+
+	"_": "->------------------------]  UI & Messages  [------------------------<-",
+
+	"itemGroup.createsdelight": "机械乐事",
+
+	"createsdelight.container.steam_pot": "蒸锅",
+	"createsdelight.container.steam_pot.not_powered": "需要蒸汽输入",
+	"createsdelight.container.steam_pot.steam_powered": "蒸汽强度： ",
+
+	"createsdelight.recipe.cutting_board_deploying": "砧板使用",
+
+	"createsdelight.tooltip.food.when_ate": "吃下后：",
+	"createsdelight.tooltip.food.when_drank": "饮用后：",
+	"createsdelight.tooltip.yogurt_bottle": "清除 1 个效果",
+	"createsdelight.tooltip.cream_bottle": "清除 1 个效果",
+	"createsdelight.tooltip.sour_cream_bottle": "清除 1 个效果",
+	"createsdelight.tooltip.yogurt_bucket": "清除所有效果",
+	"createsdelight.tooltip.cream_bucket": "清除所有效果",
+	"createsdelight.tooltip.sour_cream_bucket": "清除所有效果",
+
+	"_": "Thank you for translating Create's Delight!"
+
+}

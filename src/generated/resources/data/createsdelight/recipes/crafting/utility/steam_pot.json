@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " g ",
+    "cbc",
+    " C "
+  ],
+  "key": {
+    "g": {
+      "tag": "forge:plates/gold"
+    },
+    "c": {
+      "tag": "forge:nuggets/copper"
+    },
+    "b": {
+      "item": "minecraft:bucket"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "item": "createsdelight:steam_pot"
+  }
+}

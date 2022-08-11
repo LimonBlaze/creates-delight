@@ -1,0 +1,91 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "tag": "forge:bread"
+  },
+  "transitionalItem": {
+    "item": "createsdelight:incomplete_hot_dog"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_hot_dog"
+        },
+        {
+          "tag": "forge:pepperoni"
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_hot_dog"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_hot_dog"
+        },
+        [
+          {
+            "tag": "forge:onions"
+          },
+          {
+            "tag": "forge:vegetables/onion"
+          },
+          {
+            "tag": "forge:crops/onion"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_hot_dog"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_hot_dog"
+        },
+        {
+          "fluidTag": "forge:cheese",
+          "amount": 125
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_hot_dog"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_hot_dog"
+        },
+        {
+          "fluidTag": "forge:sour_cream",
+          "amount": 125
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_hot_dog"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "createsdelight:hot_dog"
+    }
+  ],
+  "loops": 1
+}

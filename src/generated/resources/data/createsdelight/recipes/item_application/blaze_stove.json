@@ -1,0 +1,16 @@
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "item": "create:blaze_burner"
+    },
+    {
+      "item": "minecraft:iron_trapdoor"
+    }
+  ],
+  "results": [
+    {
+      "item": "createsdelight:blaze_stove"
+    }
+  ]
+}

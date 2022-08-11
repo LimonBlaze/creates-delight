@@ -6,6 +6,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FlowingFluid;
+import net.minecraft.world.level.material.FluidState;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Supplier;
@@ -25,7 +26,8 @@ public class MoltenFluidBlock extends ThickFluidBlock {
         if(level.getFluidState(pos).isSource()) {
             for(Direction direction : POSSIBLE_FLOW_DIRECTIONS) {
                 BlockPos blockpos = pos.relative(direction.getOpposite());
-                if(level.getFluidState(blockpos).is(FluidTags.WATER)) {
+                FluidState touched = level.getFluidState(blockpos);
+                if(touched.is(FluidTags.WATER) && !touched.is(this.getFluid())) {
                     level.setBlockAndUpdate(pos, solid.get());
                     level.levelEvent(1501, pos, 0);
                     return false;

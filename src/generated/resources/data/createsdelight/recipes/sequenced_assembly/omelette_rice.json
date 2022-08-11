@@ -1,0 +1,50 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "farmersdelight:fried_rice"
+  },
+  "transitionalItem": {
+    "item": "createsdelight:incomplete_omelette_rice"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_omelette_rice"
+        },
+        {
+          "item": "createsdelight:omelette"
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_omelette_rice"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_omelette_rice"
+        },
+        {
+          "fluidTag": "forge:tomato_sauce",
+          "amount": 125
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_omelette_rice"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "createsdelight:omelette_rice"
+    }
+  ],
+  "loops": 1
+}

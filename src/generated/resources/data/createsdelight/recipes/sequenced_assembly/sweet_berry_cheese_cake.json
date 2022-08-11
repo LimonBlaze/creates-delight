@@ -1,0 +1,66 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "farmersdelight:pie_crust"
+  },
+  "transitionalItem": {
+    "item": "createsdelight:incomplete_sweet_berry_cheesecake"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_sweet_berry_cheesecake"
+        },
+        {
+          "item": "minecraft:sweet_berries"
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_sweet_berry_cheesecake"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_sweet_berry_cheesecake"
+        },
+        {
+          "item": "minecraft:sweet_berries"
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_sweet_berry_cheesecake"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_sweet_berry_cheesecake"
+        },
+        {
+          "fluidTag": "forge:cheese",
+          "amount": 250
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_sweet_berry_cheesecake"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "farmersdelight:sweet_berry_cheesecake"
+    }
+  ],
+  "loops": 2
+}

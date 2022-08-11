@@ -1,6 +1,6 @@
 package dev.limonblaze.createsdelight.core.mixin.minecraft.common;
 
-import dev.limonblaze.createsdelight.common.registry.CreatesDelightEffects;
+import dev.limonblaze.createsdelight.common.registry.CDMobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodData;
 import org.spongepowered.asm.mixin.Mixin;
@@ -24,7 +24,7 @@ public class FoodDataMixin {
     
     @Inject(method = "needsFood", at = @At("RETURN"), cancellable = true)
     private void createsdelight$applyAppetizing(CallbackInfoReturnable<Boolean> cir) {
-        if(createsdelight$player != null && createsdelight$player.hasEffect(CreatesDelightEffects.APPETIZING.get())) {
+        if(createsdelight$player != null && createsdelight$player.hasEffect(CDMobEffects.APPETIZING.get())) {
             cir.setReturnValue(true);
         }
     }

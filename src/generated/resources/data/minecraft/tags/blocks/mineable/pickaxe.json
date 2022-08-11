@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "createsdelight:blaze_stove",
-    "createsdelight:cheese_wheel"
+    "createsdelight:steam_pot",
+    "createsdelight:blaze_stove"
   ]
 }

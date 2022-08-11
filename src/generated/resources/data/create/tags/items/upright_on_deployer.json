@@ -1,12 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#forge:tools/swords",
-    "#forge:tools/axes",
-    "#forge:tools/pickaxes",
-    "#forge:tools/shovels",
-    "#forge:tools/hoes",
-    "#forge:tools/knives",
-    "#forge:shears"
+    "#forge:tools"
   ]
 }

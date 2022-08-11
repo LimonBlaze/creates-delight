@@ -5,8 +5,8 @@
 		"base": "create:block/blaze_heater_brazier",
 		"top": "createsdelight:block/blaze_heater_top",
 		"blaze": "create:block/blaze_idle",
-		"particle": "create:block/dark_metal_block",
-		"hat": "create:entity/train_hat"
+		"hat": "createsdelight:block/blaze_stove_hat",
+		"particle": "create:block/dark_metal_block"
 	},
 	"elements": [
 		{
@@ -308,63 +308,41 @@
 			}
 		},
 		{
-			"from": [3.5, 12, 3.5],
-			"to": [12.5, 15, 12.5],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 12, 6.5]},
+			"from": [3.5, 11.5, 3.5],
+			"to": [13.5, 13.5, 12.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, -1.5]},
 			"faces": {
-				"north": {"uv": [12, 4, 15, 13], "rotation": 90, "texture": "#hat"},
-				"east": {"uv": [9, 4, 12, 13], "rotation": 270, "texture": "#hat"},
-				"south": {"uv": [0, 2, 9, 5], "rotation": 180, "texture": "#hat"},
-				"west": {"uv": [9, 4, 12, 13], "rotation": 90, "texture": "#hat"},
-				"up": {"uv": [0, 5, 9, 14], "rotation": 180, "texture": "#hat"},
+				"north": {"uv": [13, 1, 15, 10], "rotation": 90, "texture": "#hat"},
+				"east": {"uv": [13, 1, 15, 10], "rotation": 270, "texture": "#hat"},
+				"south": {"uv": [13, 1, 15, 10], "rotation": 90, "texture": "#hat"},
+				"west": {"uv": [13, 1, 15, 10], "rotation": 90, "texture": "#hat"},
+				"up": {"uv": [0, 0, 0, 0], "rotation": 180, "texture": "#hat"},
 				"down": {"uv": [0, 0, 0, 0], "texture": "#hat"}
 			}
 		},
 		{
-			"from": [12.5, 12, 3.5],
-			"to": [3.5, 15, 12.5],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 12, 6.5]},
+			"from": [12.5, 11.5, 3.5],
+			"to": [4.5, 13.5, 12.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, -1.5]},
 			"faces": {
-				"north": {"uv": [12, 4, 15, 13], "rotation": 90, "texture": "#hat"},
-				"east": {"uv": [9, 4, 12, 13], "rotation": 270, "texture": "#hat"},
-				"south": {"uv": [0, 2, 9, 5], "rotation": 180, "texture": "#hat"},
-				"west": {"uv": [9, 4, 12, 13], "rotation": 90, "texture": "#hat"},
-				"up": {"uv": [0, 5, 9, 14], "rotation": 180, "texture": "#hat"},
+				"north": {"uv": [13, 1, 15, 10], "rotation": 90, "texture": "#hat"},
+				"east": {"uv": [13, 1, 15, 10], "rotation": 270, "texture": "#hat"},
+				"south": {"uv": [13, 1, 15, 10], "rotation": 90, "texture": "#hat"},
+				"west": {"uv": [13, 1, 15, 10], "rotation": 90, "texture": "#hat"},
+				"up": {"uv": [0, 0, 0, 0], "rotation": 180, "texture": "#hat"},
 				"down": {"uv": [0, 0, 0, 0], "texture": "#hat"}
 			}
 		},
 		{
-			"from": [3.3, 12, 7.7],
-			"to": [12.7, 14, 12.7],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 12, 6.5]},
+			"from": [2.5, 13.5, 2.5],
+			"to": [13.5, 15.5, 13.5],
 			"faces": {
-				"north": {"uv": [0, 0, 0, 0], "texture": "#hat"},
-				"east": {"uv": [2, 16, 7, 14], "rotation": 180, "texture": "#hat"},
-				"south": {"uv": [7, 14, 16, 16], "texture": "#hat"},
-				"west": {"uv": [2, 14, 7, 16], "texture": "#hat"},
-				"up": {"uv": [0, 0, 0, 0], "texture": "#hat"},
-				"down": {"uv": [0, 0, 0, 0], "texture": "#hat"}
-			}
-		},
-		{
-			"from": [3.5, 13.3961, 12.04328],
-			"to": [12.5, 14.3961, 14.04328],
-			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 12, 6.5]},
-			"faces": {
-				"north": {"uv": [0, 0, 0, 0], "texture": "#hat"},
-				"east": {"uv": [0, 0, 0, 0], "texture": "#hat"},
-				"south": {"uv": [0, 0, 0, 0], "texture": "#hat"},
-				"west": {"uv": [0, 0, 0, 0], "texture": "#hat"},
-				"up": {"uv": [0, 0, 9, 2], "rotation": 180, "texture": "#hat"},
-				"down": {"uv": [0, 0, 0, 0], "texture": "#hat"}
-			}
-		},
-		{
-			"from": [3.5, 14.31684, 11.9585],
-			"to": [12.5, 15.31684, 13.9585],
-			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 12, 6.5]},
-			"faces": {
-				"down": {"uv": [0, 0, 9, 2], "texture": "#missing"}
+				"north": {"uv": [11, 0, 13, 11], "rotation": 90, "texture": "#hat"},
+				"east": {"uv": [11, 0, 13, 11], "rotation": 90, "texture": "#hat"},
+				"south": {"uv": [11, 0, 13, 11], "rotation": 90, "texture": "#hat"},
+				"west": {"uv": [11, 0, 13, 11], "rotation": 90, "texture": "#hat"},
+				"up": {"uv": [0, 0, 11, 11], "texture": "#hat"},
+				"down": {"uv": [0, 0, 11, 11], "texture": "#hat"}
 			}
 		}
 	],
@@ -436,7 +414,7 @@
 					"name": "hat",
 					"origin": [8, 8, 8],
 					"color": 0,
-					"children": [27, 28, 29, 30, 31]
+					"children": [27, 28, 29]
 				}
 			]
 		}

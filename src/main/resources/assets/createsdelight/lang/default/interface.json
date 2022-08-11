@@ -1,12 +1,19 @@
 {
   "itemGroup.createsdelight": "Create's Delight",
 
-  "createsdelight.recipe.tool_application": "Tool Application",
+  "createsdelight.container.steam_pot": "Steam Pot",
+  "createsdelight.container.steam_pot.not_powered": "Needs steam input",
+  "createsdelight.container.steam_pot.steam_powered": "Steam Power:  ",
 
-  "createsdelight.tooltip.cream_bottle": "Clears 1 Effect",
-  "createsdelight.tooltip.cream_bucket": "Clears All Effects",
-  "createsdelight.tooltip.sour_cream_bottle": "Clears 1 Effect",
-  "createsdelight.tooltip.sour_cream_bucket": "Clears All Effects",
+  "createsdelight.recipe.cutting_board_deploying": "Cutting Board Deploying",
+
+  "createsdelight.tooltip.food.when_ate": "When Ate:",
+  "createsdelight.tooltip.food.when_drank": "When Drank:",
   "createsdelight.tooltip.yogurt_bottle": "Clears 1 Effect",
-  "createsdelight.tooltip.yogurt_bucket": "Clears All Effects"
+  "createsdelight.tooltip.cream_bottle": "Clears 1 Effect",
+  "createsdelight.tooltip.sour_cream_bottle": "Clears 1 Effect",
+  "createsdelight.tooltip.yogurt_bucket": "Clears All Effects",
+  "createsdelight.tooltip.cream_bucket": "Clears All Effects",
+  "createsdelight.tooltip.sour_cream_bucket": "Clears All Effects"
+
 }

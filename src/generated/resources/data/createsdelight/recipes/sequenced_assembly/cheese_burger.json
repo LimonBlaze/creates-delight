@@ -1,0 +1,97 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "tag": "forge:bread"
+  },
+  "transitionalItem": {
+    "item": "createsdelight:incomplete_cheese_burger"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_cheese_burger"
+        },
+        {
+          "tag": "forge:cheese"
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_cheese_burger"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_cheese_burger"
+        },
+        {
+          "item": "farmersdelight:beef_patty"
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_cheese_burger"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_cheese_burger"
+        },
+        [
+          {
+            "tag": "forge:onions"
+          },
+          {
+            "tag": "forge:vegetables/onion"
+          },
+          {
+            "tag": "forge:crops/onion"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_cheese_burger"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_cheese_burger"
+        },
+        [
+          {
+            "tag": "forge:tomatoes"
+          },
+          {
+            "tag": "forge:vegetables/tomato"
+          },
+          {
+            "tag": "forge:crops/tomato"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_cheese_burger"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "createsdelight:cheese_burger"
+    }
+  ],
+  "loops": 1
+}

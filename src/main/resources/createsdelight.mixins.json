@@ -8,11 +8,12 @@
   "mixins": [
     "create.access.DeployerTileEntityAccessor",
     "create.common.AllFluidsMixin",
+    "create.common.BoilerDataMixin",
+    "farmersdelight.access.SkilletBlockEntityAccessor",
     "forge.common.IForgeBlockStateMixin",
     "minecraft.common.FoodDataMixin"
   ],
   "client": [
-    "create.access.BlazeBurnerRendererAccessor",
     "create.client.DeployerRendererMixin",
     "farmersdelight.client.ConsumableItemMixin"
   ],

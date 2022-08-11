@@ -1,6 +1,6 @@
 package dev.limonblaze.createsdelight.common.item;
 
-import dev.limonblaze.createsdelight.core.duck.ConsumableItemHelper;
+import dev.limonblaze.createsdelight.compat.farmersdelight.food.FoodItemHelper;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.nbt.CompoundTag;
@@ -29,7 +29,7 @@ import java.util.function.Supplier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class DrinkableBucketItem extends BucketItem implements ConsumableItemHelper {
+public class DrinkableBucketItem extends BucketItem implements FoodItemHelper {
     private final boolean hasFoodEffectTooltip;
     private final boolean hasCustomTooltip;
     
@@ -99,11 +99,14 @@ public class DrinkableBucketItem extends BucketItem implements ConsumableItemHel
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
         if(Configuration.FOOD_EFFECT_TOOLTIP.get()) {
+            if(this.hasCustomTooltip || this.hasFoodEffectTooltip) {
+                tooltip.add(this.getUseAnimationTooltip(stack, level, flag));
+            }
             if(this.hasCustomTooltip) {
                 tooltip.addAll(this.getCustomTooltips(stack, level, flag));
             }
             if(this.hasFoodEffectTooltip) {
-                TextUtils.addFoodEffectTooltip(stack, tooltip, 1.0F);
+                tooltip.addAll(this.getFoodEffectTooltips(stack, level, flag));
             }
         }
     }

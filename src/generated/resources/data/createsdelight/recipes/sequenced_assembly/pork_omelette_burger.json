@@ -1,0 +1,90 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "tag": "forge:bread"
+  },
+  "transitionalItem": {
+    "item": "createsdelight:incomplete_pork_omelette_burger"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_pork_omelette_burger"
+        },
+        {
+          "item": "createsdelight:omelette"
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_pork_omelette_burger"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_pork_omelette_burger"
+        },
+        {
+          "item": "minecraft:cooked_porkchop"
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_pork_omelette_burger"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_pork_omelette_burger"
+        },
+        [
+          {
+            "tag": "forge:onions"
+          },
+          {
+            "tag": "forge:vegetables/onion"
+          },
+          {
+            "tag": "forge:crops/onion"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_pork_omelette_burger"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_pork_omelette_burger"
+        },
+        {
+          "fluidTag": "forge:cheese",
+          "amount": 250
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_pork_omelette_burger"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "createsdelight:pork_omelette_burger"
+    }
+  ],
+  "loops": 1
+}

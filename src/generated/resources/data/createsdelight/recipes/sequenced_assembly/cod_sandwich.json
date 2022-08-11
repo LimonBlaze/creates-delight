@@ -1,0 +1,90 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "tag": "forge:bread"
+  },
+  "transitionalItem": {
+    "item": "createsdelight:incomplete_cod_sandwich"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_cod_sandwich"
+        },
+        {
+          "tag": "forge:cooked_fishes/cod"
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_cod_sandwich"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_cod_sandwich"
+        },
+        {
+          "item": "minecraft:kelp"
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_cod_sandwich"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_cod_sandwich"
+        },
+        [
+          {
+            "tag": "forge:onions"
+          },
+          {
+            "tag": "forge:vegetables/onion"
+          },
+          {
+            "tag": "forge:crops/onion"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_cod_sandwich"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_cod_sandwich"
+        },
+        {
+          "fluidTag": "forge:cream",
+          "amount": 250
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_cod_sandwich"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "createsdelight:cod_sandwich"
+    }
+  ],
+  "loops": 1
+}

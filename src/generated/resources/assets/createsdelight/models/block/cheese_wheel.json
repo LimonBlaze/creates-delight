@@ -1,8 +1,9 @@
 {
-  "parent": "minecraft:block/slab",
+  "parent": "farmersdelight:block/pie",
   "textures": {
-    "side": "createsdelight:block/cheese_wheel_side",
-    "bottom": "createsdelight:block/cheese_wheel_top",
-    "top": "createsdelight:block/cheese_wheel_top"
+    "particle": "createsdelight:block/cheese_wheel_top",
+    "top": "createsdelight:block/cheese_wheel_top",
+    "bottom": "createsdelight:block/cheese_wheel_bottom",
+    "side": "createsdelight:block/cheese_wheel_side"
   }
 }

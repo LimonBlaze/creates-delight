@@ -1,6 +1,6 @@
 package dev.limonblaze.createsdelight.core.asm;
 
-import dev.limonblaze.createsdelight.common.registry.CreatesDelightEffects;
+import dev.limonblaze.createsdelight.common.registry.CDMobEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -39,10 +39,9 @@ public final class IForgeBlockStateASM {
         }
     }
     
-    @SuppressWarnings("unused")
     public static float modifyFriction(float friction, @Nullable Entity entity) {
         MobEffectInstance effect;
-        if(entity instanceof LivingEntity living && (effect = living.getEffect(CreatesDelightEffects.GREASY.get())) != null) {
+        if(entity instanceof LivingEntity living && (effect = living.getEffect(CDMobEffects.GREASY.get())) != null) {
             int lvl = effect.getAmplifier() + 1;
             return  1 - (1 - friction) / (8 << lvl);
         }

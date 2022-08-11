@@ -1,0 +1,70 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "tag": "forge:bread"
+  },
+  "transitionalItem": {
+    "item": "createsdelight:incomplete_chicken_sandwich"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_chicken_sandwich"
+        },
+        {
+          "tag": "forge:cooked_chicken"
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_chicken_sandwich"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_chicken_sandwich"
+        },
+        {
+          "tag": "forge:salad_ingredients"
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_chicken_sandwich"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_chicken_sandwich"
+        },
+        [
+          {
+            "tag": "forge:carrots"
+          },
+          {
+            "tag": "forge:vegetables/carrot"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_chicken_sandwich"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "farmersdelight:chicken_sandwich"
+    }
+  ],
+  "loops": 1
+}

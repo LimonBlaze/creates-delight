@@ -6,6 +6,8 @@ import com.simibubi.create.content.contraptions.processing.burner.BlazeBurnerBlo
 import com.simibubi.create.content.contraptions.processing.burner.BlazeBurnerTileEntity;
 import com.simibubi.create.foundation.utility.animation.LerpedFloat;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
@@ -18,13 +20,14 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.items.ItemStackHandler;
 import org.apache.commons.lang3.tuple.Triple;
 import vectorwing.farmersdelight.common.block.CookingPotBlock;
+import vectorwing.farmersdelight.common.block.StoveBlock;
 import vectorwing.farmersdelight.common.block.entity.CookingPotBlockEntity;
 import vectorwing.farmersdelight.common.mixin.accessor.RecipeManagerAccessor;
 import vectorwing.farmersdelight.common.tag.ModTags;
@@ -33,6 +36,8 @@ import vectorwing.farmersdelight.common.utility.ItemUtils;
 import java.util.Optional;
 
 public class BlazeStoveBlockEntity extends BlazeBurnerTileEntity {
+    public static final Vec2[] ITEM_OFFSET_NS = new Vec2[9];
+    public static final Vec2[] ITEM_OFFSET_WE = new Vec2[9];
     private static final VoxelShape GRILLING_AREA = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 1.0D, 13.0D);
     private static final int INVENTORY_SLOT_COUNT = 9;
     private final ItemStackHandler inventory = this.createItemHandler();
@@ -55,21 +60,30 @@ public class BlazeStoveBlockEntity extends BlazeBurnerTileEntity {
     @Override
     public void tick() {
         super.tick();
-        if(!level.isClientSide) {
-            BlazeBurnerBlock.HeatLevel heat = getHeatLevelFromBlock();
-            if(this.isBlockedAbove()) {
-                this.dropAll();
-            } else if(heat.isAtLeast(BlazeBurnerBlock.HeatLevel.SEETHING)) {
-                this.burnIngredients();
-            } else if(heat.isAtLeast(BlazeBurnerBlock.HeatLevel.FADING)) {
-                this.cookingTick();
-                this.boostCookingPot();
-            } else {
-                for(int i = 0; i < this.inventory.getSlots(); ++i) {
-                    if(this.cookingTimes[i] > 0) {
-                        this.cookingTimes[i] = Mth.clamp(this.cookingTimes[i] - 2, 0, this.cookingTimesTotal[i]);
+        BlazeBurnerBlock.HeatLevel heat = getHeatLevelFromBlock();
+        if(level.isClientSide) {
+            if(!heat.isAtLeast(BlazeBurnerBlock.HeatLevel.SEETHING)) {
+                for(int i = 0; i < INVENTORY_SLOT_COUNT; ++i) {
+                    if(this.level.random.nextFloat() < 0.2F && !this.inventory.getStackInSlot(i).isEmpty()) {
+                        this.addSmokeAtItems(i, 3);
                     }
                 }
+            }
+        } else {
+            boolean blockedAbove = this.isBlockedAbove();
+            switch(heat) {
+                case SEETHING -> {
+                    this.boostCookingPot(3);
+                    this.burnIngredients(blockedAbove);
+                }
+                case KINDLED, FADING -> {
+                    this.boostCookingPot(1);
+                    this.processCooking(blockedAbove);
+                }
+                default -> this.decrementCooking(blockedAbove);
+            }
+            if(blockedAbove) {
+                this.dropAll();
             }
         }
     }
@@ -136,22 +150,13 @@ public class BlazeStoveBlockEntity extends BlazeBurnerTileEntity {
         return this.headAnimation;
     }
     
-    public boolean getGoggles() {
-        return this.goggles;
-    }
-    
-    public void setGoggles(boolean goggles) {
-        this.goggles = goggles;
-    }
-    
     @Override
     protected void setBlockHeat(BlazeBurnerBlock.HeatLevel newHeat) {
         BlazeBurnerBlock.HeatLevel originalHeat = this.getHeatLevelFromBlock();
-        if (originalHeat == newHeat)
+        if(originalHeat == newHeat)
             return;
         this.level.setBlockAndUpdate(worldPosition, getBlockState()
             .setValue(BlazeBurnerBlock.HEAT_LEVEL, newHeat)
-            .setValue(BlockStateProperties.LIT, newHeat.isAtLeast(BlazeBurnerBlock.HeatLevel.FADING))
         );
         notifyUpdate();
     }
@@ -200,7 +205,8 @@ public class BlazeStoveBlockEntity extends BlazeBurnerTileEntity {
         }
     }
     
-    protected void cookingTick() {
+    protected void processCooking(boolean blockedAbove) {
+        if(blockedAbove) return;
         boolean didInventoryChange = false;
         for(int i = 0; i < this.inventory.getSlots(); ++i) {
             ItemStack stack = this.inventory.getStackInSlot(i);
@@ -246,7 +252,8 @@ public class BlazeStoveBlockEntity extends BlazeBurnerTileEntity {
         return this.level.getRecipeManager().getRecipeFor(RecipeType.CAMPFIRE_COOKING, recipeWrapper, this.level);
     }
     
-    protected void burnIngredients() {
+    protected void burnIngredients(boolean blockedAbove) {
+        if(blockedAbove) return;
         boolean didInventoryChange = false;
         int totalUncooked = 0;
         for(int i = 0; i < this.inventory.getSlots(); ++i) {
@@ -255,6 +262,7 @@ public class BlazeStoveBlockEntity extends BlazeBurnerTileEntity {
             totalUncooked += Math.max(0, this.cookingTimesTotal[i] - this.cookingTimes[i]);
             this.cookingTimesTotal[i] = this.cookingTimes[0] = 0;
             this.inventory.setStackInSlot(i, ItemStack.EMPTY);
+            this.addSmokeAtItems(i, 5);
             didInventoryChange = true;
         }
         
@@ -265,7 +273,16 @@ public class BlazeStoveBlockEntity extends BlazeBurnerTileEntity {
         }
     }
     
-    protected void boostCookingPot() {
+    protected void decrementCooking(boolean blockedAbove) {
+        if(blockedAbove) return;
+        for(int i = 0; i < INVENTORY_SLOT_COUNT; ++i) {
+            if(this.cookingTimes[i] > 0) {
+                this.cookingTimes[i] = Mth.clamp(this.cookingTimes[i] - 2, 0, this.cookingTimesTotal[i]);
+            }
+        }
+    }
+    
+    protected void boostCookingPot(int times) {
         Triple<BlockPos, BlockState, CookingPotBlockEntity> result = null;
         BlockPos posAbove = getBlockPos().above();
         BlockState stateAbove = this.level.getBlockState(posAbove);
@@ -275,14 +292,39 @@ public class BlazeStoveBlockEntity extends BlazeBurnerTileEntity {
             if(stateAbove.is(ModTags.HEAT_CONDUCTORS)) {
                 BlockPos posFurtherAbove = posAbove.above();
                 if(this.level.getBlockEntity(posFurtherAbove) instanceof CookingPotBlockEntity cookingPot
-                && cookingPot.requiresDirectHeat()) {
+                && !cookingPot.requiresDirectHeat()) {
                     result = Triple.of(posFurtherAbove, this.level.getBlockState(posFurtherAbove), cookingPot);
                 }
             }
         }
         if(result == null) return;
-        
-        CookingPotBlockEntity.cookingTick(this.level, result.getLeft(), result.getMiddle(), result.getRight());
+        for(int i = 0; i < times; ++i) {
+            CookingPotBlockEntity.cookingTick(this.level, result.getLeft(), result.getMiddle(), result.getRight());
+        }
+    }
+    
+    public void addSmokeAtItems(int slot, int amount) {
+        Direction direction = this.getBlockState().getValue(StoveBlock.FACING);
+        int directionIndex = direction.get2DDataValue();
+        Vec2 offset = directionIndex % 2 == 0 ? ITEM_OFFSET_NS[slot] : ITEM_OFFSET_WE[slot];
+        double x = this.worldPosition.getX() + 0.5D +
+            (direction.getClockWise().getStepX() - direction.getStepX()) * offset.x;
+        double y = this.worldPosition.getY() + 1.0D;
+        double z = this.worldPosition.getZ() + 0.5D +
+            (direction.getClockWise().getStepZ() - direction.getStepZ()) * offset.y;
+        for(int k = 0; k < amount; ++k) {
+            this.level.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0D, 5.0E-4D, 0.0D);
+        }
+    }
+    
+    static {
+        float scale = 5/16F;
+        for(int i = 0; i < 9; ++i) {
+            float x = (i % 3 - 1) * scale;
+            float y = (i / 3 - 1) * scale;
+            ITEM_OFFSET_NS[i] = new Vec2(x, y);
+            ITEM_OFFSET_WE[i] = new Vec2(y, x);
+        }
     }
     
 }

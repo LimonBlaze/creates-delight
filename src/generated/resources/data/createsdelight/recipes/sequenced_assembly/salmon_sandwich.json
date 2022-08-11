@@ -1,0 +1,90 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "tag": "forge:bread"
+  },
+  "transitionalItem": {
+    "item": "createsdelight:incomplete_salmon_sandwich"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_salmon_sandwich"
+        },
+        {
+          "tag": "forge:cooked_fishes/salmon"
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_salmon_sandwich"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_salmon_sandwich"
+        },
+        {
+          "item": "minecraft:sea_pickle"
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_salmon_sandwich"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_salmon_sandwich"
+        },
+        [
+          {
+            "tag": "forge:tomatoes"
+          },
+          {
+            "tag": "forge:vegetables/tomato"
+          },
+          {
+            "tag": "forge:crops/tomato"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_salmon_sandwich"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_salmon_sandwich"
+        },
+        {
+          "fluidTag": "forge:sour_cream",
+          "amount": 250
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_salmon_sandwich"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "createsdelight:salmon_sandwich"
+    }
+  ],
+  "loops": 1
+}

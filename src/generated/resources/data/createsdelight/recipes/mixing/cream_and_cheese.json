@@ -1,9 +1,14 @@
 {
   "type": "create:mixing",
   "ingredients": [
-    {
-      "item": "createsdelight:salt"
-    },
+    [
+      {
+        "tag": "forge:salt"
+      },
+      {
+        "tag": "forge:dusts/salt"
+      }
+    ],
     {
       "fluid": "minecraft:milk",
       "nbt": {},

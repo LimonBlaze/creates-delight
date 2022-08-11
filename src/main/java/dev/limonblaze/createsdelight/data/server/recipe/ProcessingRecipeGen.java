@@ -39,8 +39,7 @@ import java.util.function.UnaryOperator;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE <br/>
  * SOFTWARE. <br/>
  */
-@SuppressWarnings("unused")
-public abstract class ProcessingRecipeGen extends CreatesDelightRecipeProvider {
+public abstract class ProcessingRecipeGen extends CDRecipeProvider {
     
     protected static final int BUCKET = FluidAttributes.BUCKET_VOLUME;
     protected static final int BOTTLE = 250;

@@ -4,38 +4,40 @@ import dev.limonblaze.createsdelight.CreatesDelight;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringJoiner;
 
 public class LangUtils {
     
-    public static TranslatableComponent translate(String category, ResourceLocation loc, String[] suffixs, Object[] args) {
-        StringJoiner joiner = new StringJoiner(".");
-        joiner.add(loc.getNamespace()).add(category).add(loc.getPath());
-        for(String suffix : suffixs) joiner.add(suffix);
-        return new TranslatableComponent(joiner.toString(), args);
+    public static Builder translate(String category) {
+        return new Builder().suffix(CreatesDelight.ID).suffix(category);
     }
     
-    public static TranslatableComponent translate(String category, ResourceLocation loc, String... suffixs) {
-        return translate(category, loc, suffixs, new Object[0]);
+    public static Builder translateId(String category, ResourceLocation loc) {
+        return new Builder().suffix(loc.getNamespace()).suffix(category).suffix(loc.getPath());
     }
     
-    public static TranslatableComponent translate(String category, ResourceLocation loc, Object... args) {
-        return translate(category, loc, new String[0], args);
-    }
-    
-    public static TranslatableComponent translate(String category, String[] suffixs, Object[] args) {
-        StringJoiner joiner = new StringJoiner(".");
-        joiner.add(CreatesDelight.ID).add(category);
-        for(String suffix : suffixs) joiner.add(suffix);
-        return new TranslatableComponent(joiner.toString(), args);
-    }
-    
-    public static TranslatableComponent translate(String category, String... suffixs) {
-        return translate(category, suffixs, new Object[0]);
-    }
-    
-    public static TranslatableComponent translate(String category, Object... args) {
-        return translate(category, new String[0], args);
+    public static class Builder {
+        private final List<String> key = new ArrayList<>();
+        private final List<Object> args = new ArrayList<>();
+        
+        public Builder suffix(String suffix) {
+            key.add(suffix);
+            return this;
+        }
+        
+        public Builder arg(Object arg) {
+            args.add(arg);
+            return this;
+        }
+        
+        public TranslatableComponent build() {
+            StringJoiner joiner = new StringJoiner(".");
+            key.forEach(joiner::add);
+            return new TranslatableComponent(joiner.toString(), args.toArray());
+        }
+        
     }
     
 }

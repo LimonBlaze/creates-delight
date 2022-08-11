@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,wall=false": {
+      "model": "createsdelight:block/steam_pot/block_floor",
+      "y": 180
+    },
+    "facing=south,wall=false": {
+      "model": "createsdelight:block/steam_pot/block_floor"
+    },
+    "facing=west,wall=false": {
+      "model": "createsdelight:block/steam_pot/block_floor",
+      "y": 90
+    },
+    "facing=east,wall=false": {
+      "model": "createsdelight:block/steam_pot/block_floor",
+      "y": 270
+    },
+    "facing=north,wall=true": {
+      "model": "createsdelight:block/steam_pot/block_wall",
+      "y": 180
+    },
+    "facing=south,wall=true": {
+      "model": "createsdelight:block/steam_pot/block_wall"
+    },
+    "facing=west,wall=true": {
+      "model": "createsdelight:block/steam_pot/block_wall",
+      "y": 90
+    },
+    "facing=east,wall=true": {
+      "model": "createsdelight:block/steam_pot/block_wall",
+      "y": 270
+    }
+  }
+}

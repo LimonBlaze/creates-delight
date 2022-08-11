@@ -1,0 +1,58 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"inner": "create:block/whistle",
+		"particle": "createsdelight:block/steam_pot",
+		"outer": "createsdelight:block/steam_pot"
+	},
+	"elements": [
+		{
+			"name": "Pot Outer",
+			"from": [2.5, 5, 2.5],
+			"to": [13.5, 12, 13.5],
+			"faces": {
+				"north": {"uv": [0, 4, 10, 11], "texture": "#outer"},
+				"east": {"uv": [0.75, 2, 3.25, 3.75], "texture": "#inner"},
+				"south": {"uv": [0.75, 2, 3.25, 3.75], "texture": "#inner"},
+				"west": {"uv": [0.75, 2, 3.25, 3.75], "texture": "#inner"},
+				"up": {"uv": [12.75, 12.75, 15.25, 15.25], "rotation": 180, "texture": "#inner"},
+				"down": {"uv": [12.75, 12.75, 15.25, 15.25], "texture": "#inner"}
+			}
+		},
+		{
+			"name": "Pot Handle Left",
+			"from": [0.5, 7.5, 5],
+			"to": [2.5, 9.5, 11],
+			"faces": {
+				"north": {"uv": [0, 0, 2, 2], "texture": "#outer"},
+				"east": {"uv": [0, 0, 0, 0], "texture": "#outer"},
+				"south": {"uv": [8, 0, 10, 2], "texture": "#outer"},
+				"west": {"uv": [2, 2, 8, 4], "texture": "#outer"},
+				"up": {"uv": [2, 0, 8, 2], "rotation": 270, "texture": "#outer"},
+				"down": {"uv": [2, 2, 8, 4], "rotation": 270, "texture": "#outer"}
+			}
+		},
+		{
+			"name": "Pot Handle Right",
+			"from": [13.5, 7.5, 5],
+			"to": [15.5, 9.5, 11],
+			"faces": {
+				"north": {"uv": [8, 0, 10, 2], "texture": "#outer"},
+				"east": {"uv": [2, 2, 8, 4], "texture": "#outer"},
+				"south": {"uv": [0, 0, 2, 2], "texture": "#outer"},
+				"west": {"uv": [0, 0, 0, 0], "texture": "#outer"},
+				"up": {"uv": [2, 0, 8, 2], "rotation": 90, "texture": "#outer"},
+				"down": {"uv": [2, 2, 8, 4], "rotation": 90, "texture": "#outer"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "Pot",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1, 2]
+		}
+	]
+}

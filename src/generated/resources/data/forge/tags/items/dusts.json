@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "minecraft:sugar",
     "#forge:dusts/salt"
   ]
 }

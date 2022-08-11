@@ -1,0 +1,28 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "tag": "forge:raw_beef"
+    },
+    {
+      "tag": "forge:raw_pork"
+    },
+    [
+      {
+        "tag": "forge:salt"
+      },
+      {
+        "tag": "forge:dusts/salt"
+      }
+    ],
+    {
+      "item": "minecraft:blaze_powder"
+    }
+  ],
+  "results": [
+    {
+      "item": "createsdelight:blazeroni",
+      "count": 2
+    }
+  ]
+}

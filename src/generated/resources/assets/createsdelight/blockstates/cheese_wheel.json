@@ -1,13 +1,64 @@
 {
   "variants": {
-    "type=top": {
-      "model": "createsdelight:block/cheese_wheel_top"
-    },
-    "type=bottom": {
+    "bites=0,facing=north": {
       "model": "createsdelight:block/cheese_wheel"
     },
-    "type=double": {
-      "model": "createsdelight:block/cheese_wheel_double"
+    "bites=1,facing=north": {
+      "model": "createsdelight:block/cheese_wheel_slice1"
+    },
+    "bites=2,facing=north": {
+      "model": "createsdelight:block/cheese_wheel_slice2"
+    },
+    "bites=3,facing=north": {
+      "model": "createsdelight:block/cheese_wheel_slice3"
+    },
+    "bites=0,facing=south": {
+      "model": "createsdelight:block/cheese_wheel",
+      "y": 180
+    },
+    "bites=1,facing=south": {
+      "model": "createsdelight:block/cheese_wheel_slice1",
+      "y": 180
+    },
+    "bites=2,facing=south": {
+      "model": "createsdelight:block/cheese_wheel_slice2",
+      "y": 180
+    },
+    "bites=3,facing=south": {
+      "model": "createsdelight:block/cheese_wheel_slice3",
+      "y": 180
+    },
+    "bites=0,facing=west": {
+      "model": "createsdelight:block/cheese_wheel",
+      "y": 270
+    },
+    "bites=1,facing=west": {
+      "model": "createsdelight:block/cheese_wheel_slice1",
+      "y": 270
+    },
+    "bites=2,facing=west": {
+      "model": "createsdelight:block/cheese_wheel_slice2",
+      "y": 270
+    },
+    "bites=3,facing=west": {
+      "model": "createsdelight:block/cheese_wheel_slice3",
+      "y": 270
+    },
+    "bites=0,facing=east": {
+      "model": "createsdelight:block/cheese_wheel",
+      "y": 90
+    },
+    "bites=1,facing=east": {
+      "model": "createsdelight:block/cheese_wheel_slice1",
+      "y": 90
+    },
+    "bites=2,facing=east": {
+      "model": "createsdelight:block/cheese_wheel_slice2",
+      "y": 90
+    },
+    "bites=3,facing=east": {
+      "model": "createsdelight:block/cheese_wheel_slice3",
+      "y": 90
     }
   }
 }

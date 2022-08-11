@@ -1,0 +1,73 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "tag": "forge:bread"
+  },
+  "transitionalItem": {
+    "item": "createsdelight:incomplete_salmon_sandwich"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_salmon_sandwich"
+        },
+        {
+          "tag": "forge:cooked_mutton"
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_salmon_sandwich"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_salmon_sandwich"
+        },
+        {
+          "tag": "forge:salad_ingredients"
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_salmon_sandwich"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_salmon_sandwich"
+        },
+        [
+          {
+            "tag": "forge:onions"
+          },
+          {
+            "tag": "forge:vegetables/onion"
+          },
+          {
+            "tag": "forge:crops/onion"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_salmon_sandwich"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "farmersdelight:mutton_wrap"
+    }
+  ],
+  "loops": 1
+}

@@ -8,14 +8,10 @@ public enum ModHelper {
     FD("farmersdelight"),
     CR("create");
     
-    private final String id;
+    public final String id;
     
     ModHelper(String id) {
         this.id = id;
-    }
-    
-    public String getId() {
-        return id;
     }
     
     public ResourceLocation asResource(String path) {

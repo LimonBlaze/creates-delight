@@ -12,6 +12,7 @@ import net.minecraft.world.phys.Vec3;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Supplier;
 
+@SuppressWarnings("deprecation")
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 public class ThickFluidBlock extends LiquidBlock {
@@ -20,7 +21,6 @@ public class ThickFluidBlock extends LiquidBlock {
         super(fluid, properties);
     }
     
-    @SuppressWarnings("deprecation")
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         float factor = (float) Math.sqrt(1000D / this.getFluid().getAttributes().getViscosity());

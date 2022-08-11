@@ -2,7 +2,7 @@ package dev.limonblaze.createsdelight.common.recipe;
 
 import com.simibubi.create.content.contraptions.processing.ProcessingRecipe;
 import com.simibubi.create.content.contraptions.processing.ProcessingRecipeBuilder;
-import dev.limonblaze.createsdelight.common.registry.CreatesDelightRecipeTypes;
+import dev.limonblaze.createsdelight.common.registry.CDRecipeTypes;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
@@ -16,7 +16,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class CuttingBoardDeployingRecipe extends ProcessingRecipe<RecipeWrapper> {
     
     public CuttingBoardDeployingRecipe(ProcessingRecipeBuilder.ProcessingRecipeParams params) {
-        super(CreatesDelightRecipeTypes.CUTTING_BOARD_DEPLOYING, params);
+        super(CDRecipeTypes.CUTTING_BOARD_DEPLOYING, params);
     }
     
     public static CuttingBoardDeployingRecipe fromCuttingBoard(CuttingBoardRecipe recipe) {

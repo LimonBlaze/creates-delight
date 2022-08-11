@@ -1,33 +1,78 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    {
-      "tag": "forge:dusts/salt"
-    },
-    {
-      "tag": "forge:dusts/salt"
-    },
-    {
-      "tag": "forge:dusts/salt"
-    },
-    {
-      "tag": "forge:dusts/salt"
-    },
-    {
-      "tag": "forge:dusts/salt"
-    },
-    {
-      "tag": "forge:dusts/salt"
-    },
-    {
-      "tag": "forge:dusts/salt"
-    },
-    {
-      "tag": "forge:dusts/salt"
-    },
-    {
-      "tag": "forge:dusts/salt"
-    }
+    [
+      {
+        "tag": "forge:salt"
+      },
+      {
+        "tag": "forge:dusts/salt"
+      }
+    ],
+    [
+      {
+        "tag": "forge:salt"
+      },
+      {
+        "tag": "forge:dusts/salt"
+      }
+    ],
+    [
+      {
+        "tag": "forge:salt"
+      },
+      {
+        "tag": "forge:dusts/salt"
+      }
+    ],
+    [
+      {
+        "tag": "forge:salt"
+      },
+      {
+        "tag": "forge:dusts/salt"
+      }
+    ],
+    [
+      {
+        "tag": "forge:salt"
+      },
+      {
+        "tag": "forge:dusts/salt"
+      }
+    ],
+    [
+      {
+        "tag": "forge:salt"
+      },
+      {
+        "tag": "forge:dusts/salt"
+      }
+    ],
+    [
+      {
+        "tag": "forge:salt"
+      },
+      {
+        "tag": "forge:dusts/salt"
+      }
+    ],
+    [
+      {
+        "tag": "forge:salt"
+      },
+      {
+        "tag": "forge:dusts/salt"
+      }
+    ],
+    [
+      {
+        "tag": "forge:salt"
+      },
+      {
+        "tag": "forge:dusts/salt"
+      }
+    ]
   ],
   "result": {
     "item": "createsdelight:salt_bag"

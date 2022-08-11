@@ -4,7 +4,7 @@ import com.simibubi.create.content.logistics.block.mechanicalArm.AllArmInteracti
 import com.simibubi.create.content.logistics.block.mechanicalArm.ArmInteractionPoint;
 import com.simibubi.create.content.logistics.block.mechanicalArm.ArmInteractionPointType;
 import dev.limonblaze.createsdelight.common.block.BlazeStoveBlock;
-import dev.limonblaze.createsdelight.common.registry.CreatesDelightBlocks;
+import dev.limonblaze.createsdelight.common.registry.CDBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Containers;
@@ -41,7 +41,7 @@ public class BlazeStovePoint extends AllArmInteractionPointTypes.DepositOnlyArmI
     
         @Override
         public boolean canCreatePoint(Level level, BlockPos pos, BlockState state) {
-            return CreatesDelightBlocks.BLAZE_STOVE.has(state);
+            return CDBlocks.BLAZE_STOVE.has(state);
         }
     
         @Nullable

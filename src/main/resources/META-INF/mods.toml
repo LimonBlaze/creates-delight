@@ -29,12 +29,19 @@ description="Create & Farmer's Delight - It's time for some steampowered delicac
     modId="create"
     mandatory=true
     versionRange="${create_version}"
-    ordering="BEFORE"
+    ordering="AFTER"
     side="BOTH"
 
 [[dependencies.createsdelight]]
     modId="farmersdelight"
     mandatory=true
     versionRange="${farmersdelight_version}"
-    ordering="BEFORE"
+    ordering="AFTER"
     side="BOTH"
+
+[[dependencies.createsdelight]]
+    modId="flywheel"
+    mandatory=true
+    versionRange="${flywheel_version}"
+    ordering="AFTER"
+    side="CLIENT"
