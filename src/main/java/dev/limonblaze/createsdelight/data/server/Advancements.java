@@ -48,8 +48,8 @@ public class Advancements implements DataProvider {
         //dairy
         DAIRY_INDUSTRY = create("dairy_industry", b -> b
             .icon(Items.MILK_BUCKET)
-            .title("Dairy Industry")
-            .description("Pour Milk into the basin")
+            .title("Farmer's Dairy Industry")
+            .description("Pour Milk into your Basin and start your Dairy Industry")
             .parent(ROOT)),
         CREAMY = create("creamy", b -> b
             .icon(CDItems.CREAM_BOTTLE)
@@ -62,19 +62,19 @@ public class Advancements implements DataProvider {
             .title("Cheese of Truth")
             .description("Obtain Cheese from Milk, and shape it into a Cheese Wheel")
             .whenIconCollected()
-            .parent(CREAMY)),
+            .parent(DAIRY_INDUSTRY)),
         BUTTER_FLIES = create("butter_flies", b -> b
             .icon(CDItems.BUTTER)
             .title("Butter Flies!")
             .description("Stir the Cream until it turns into Butter")
             .whenIconCollected()
-            .parent(CHEESE_OF_TRUTH)),
-        NOT_ONLY_FOR_POTIONS = create("not_only_for_potions", b -> b
-            .icon(Items.NETHER_WART)
-            .title("Not Only for Potions")
-            .description("Of course Nether Wart can ferment Milk and Cream")
+            .parent(CREAMY)),
+        SOUR_AND_APPETIZING = create("sour_and_appetizing", b -> b
+            .icon(CDItems.SOUR_CREAM_BOTTLE)
+            .title("Sour and Appetizing")
+            .description("Ferment your Milk and Cream, make them appetizing and healthy food")
             .whenItemCollected(CDItems.YOGURT_BOTTLE, CDItems.SOUR_CREAM_BOTTLE)
-            .parent(BUTTER_FLIES)),
+            .parent(CREAMY)),
         //blaze stove
         CHEF_BLAZE = create("chef_blaze", b -> b
             .icon(CDBlocks.BLAZE_STOVE)
@@ -90,7 +90,7 @@ public class Advancements implements DataProvider {
         SUPER_BLAZERINO = create("super_blazerino", b -> b
             .icon(Items.SOUL_TORCH)
             .title("Super Blazerino")
-            .description("The more it burns, the faster it cooks")
+            .description("The more it burns, the faster it cooks!")
             .parent(BLAZERINO)),
         BLAZING_BARBECUE = create("blazing_barbecue", b -> b
             .icon(ModItems.BARBECUE_STICK.get())
@@ -130,40 +130,40 @@ public class Advancements implements DataProvider {
             .parent(ANOTHER_KIND_OF_PIE)
             .typed(TaskType.EXPERT)),
         //automation
-        HANDS_OF_A_CHEF = create("hands_of_a_chef", b -> b
+        KNIVES_IN_HANDS = create("knives_in_hands", b -> b
             .icon(AllBlocks.DEPLOYER.get())
-            .title("Hands of a Chef")
-            .description("Use a Deployer to perform Cutting Board Recipes on a Belt")
+            .title("Knives in \"Hands\"")
+            .description("Use a Deployer to perform Knife Cutting")
             .parent(ROOT)
             .typed(TaskType.NOISY)),
-        ARMS_OF_A_CHEF = create("arms_of_a_chef", b -> b
+        MEALS_IN_ARMS = create("meals_in_arms", b -> b
             .icon(AllBlocks.MECHANICAL_ARM)
-            .title("Arms of a Chef")
+            .title("Meals in \"Arms\"")
             .description("Use Mechanical Arms to operate a Cooking Pot")
-            .parent(HANDS_OF_A_CHEF)),
+            .parent(KNIVES_IN_HANDS)),
         //sequenced assembly
         PIE_FACTORY = create("pie_factory", b -> b
             .icon(ModItems.APPLE_PIE.get())
             .title("Pie Factory")
-            .description("Make an Assembly Line for Pies and check the incomplete product")
+            .description("Make an Assembly Line for a kind of Pie and check the incomplete product")
             .whenItemCollected(CDTags.ItemTag.INCOMPLETE_FOOD$PIES)
             .parent(ROOT)),
         SANDWICH_FACTORY = create("sandwich_factory", b -> b
             .icon(ModItems.BACON_SANDWICH.get())
             .title("Sandwich Factory")
-            .description("Make an Assembly Line for Sandwiches and check the incomplete product")
+            .description("Make an Assembly Line for a kind of Sandwich and check the incomplete product")
             .whenItemCollected(CDTags.ItemTag.INCOMPLETE_FOOD$SANDWICHES)
             .parent(PIE_FACTORY)),
         HAMBURGER_FACTORY = create("hamburger_factory", b -> b
             .icon(ModItems.HAMBURGER.get())
             .title("Hamburger Factory")
-            .description("Make an Assembly Line for Hamburgers and check the incomplete product")
+            .description("Make an Assembly Line for a kind of Hamburger and check the incomplete product")
             .whenItemCollected(CDTags.ItemTag.INCOMPLETE_FOOD$HAMBURGERS)
             .parent(SANDWICH_FACTORY)),
         WRAP_FACTORY = create("wrap_factory", b -> b
             .icon(ModItems.MUTTON_WRAP.get())
             .title("Wrap Factory")
-            .description("Make an Assembly Line for Wraps and check the incomplete product")
+            .description("Make an Assembly Line for a kind of Wrap and check the incomplete product")
             .whenItemCollected(CDTags.ItemTag.INCOMPLETE_FOOD$WRAPS)
             .parent(HAMBURGER_FACTORY)),
         END = null;

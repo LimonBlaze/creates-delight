@@ -7,8 +7,13 @@
   "plugin": "dev.limonblaze.createsdelight.core.CreatesDelightMixinConfig",
   "mixins": [
     "create.access.DeployerTileEntityAccessor",
+    "create.common.AdvancementBehaviourMixin",
     "create.common.AllFluidsMixin",
+    "create.common.ArmTileEntityMixin",
+    "create.common.BeltDeployerCallbacksMixin",
     "create.common.BoilerDataMixin",
+    "create.common.DeployerTileEntityMixin",
+    "create.common.ManualApplicationRecipeMixin",
     "farmersdelight.access.SkilletBlockEntityAccessor",
     "forge.common.IForgeBlockStateMixin",
     "minecraft.common.FoodDataMixin"

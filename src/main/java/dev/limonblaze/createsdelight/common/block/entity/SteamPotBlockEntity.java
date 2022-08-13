@@ -3,17 +3,21 @@ package dev.limonblaze.createsdelight.common.block.entity;
 import com.simibubi.create.AllSoundEvents;
 import com.simibubi.create.content.contraptions.components.steam.SteamJetParticleData;
 import com.simibubi.create.content.contraptions.fluids.tank.FluidTankTileEntity;
+import com.simibubi.create.foundation.advancement.AdvancementBehaviour;
 import com.simibubi.create.foundation.tileEntity.SmartTileEntity;
 import com.simibubi.create.foundation.tileEntity.TileEntityBehaviour;
 import com.simibubi.create.foundation.utility.AngleHelper;
 import com.simibubi.create.foundation.utility.VecHelper;
 import com.simibubi.create.foundation.utility.animation.LerpedFloat;
+import dev.limonblaze.createsdelight.common.advancement.AdvancementBehaviourHelper;
+import dev.limonblaze.createsdelight.common.advancement.AdvancementHolder;
 import dev.limonblaze.createsdelight.common.block.SteamPotBlock;
 import dev.limonblaze.createsdelight.common.menu.SteamPotContainerMenu;
 import dev.limonblaze.createsdelight.common.recipe.SteamPotRecipe;
 import dev.limonblaze.createsdelight.common.registry.CDMenus;
 import dev.limonblaze.createsdelight.common.registry.CDRecipeTypes;
 import dev.limonblaze.createsdelight.compat.create.steam.BoilerDataHelper;
+import dev.limonblaze.createsdelight.data.server.Advancements;
 import dev.limonblaze.createsdelight.util.LangUtils;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -203,7 +207,16 @@ public class SteamPotBlockEntity extends SmartTileEntity implements MenuProvider
     
     @Override
     public void addBehaviours(List<TileEntityBehaviour> behaviours) {
+        AdvancementBehaviour ab = new AdvancementBehaviour(this);
+        ((AdvancementBehaviourHelper)ab).add(
+            Advancements.COOKING_WITH_STEAM,
+            Advancements.FULL_STEAM_COOKING
+        );
+        behaviours.add(ab);
+    }
     
+    public void award(AdvancementHolder advancement) {
+        ((AdvancementBehaviourHelper)(this.getBehaviour(AdvancementBehaviour.TYPE))).add(advancement);
     }
     
     private int getNewSteamPower() {
@@ -235,6 +248,8 @@ public class SteamPotBlockEntity extends SmartTileEntity implements MenuProvider
     public void updateCooking(Level level, BlockPos pos, BlockState state, int steamPower) {
         boolean didInventoryChange = false;
         if(steamPower > 0 && this.hasInput()) {
+            this.award(Advancements.COOKING_WITH_STEAM);
+            if(steamPower >= 4) this.award(Advancements.FULL_STEAM_COOKING);
             Optional<SteamPotRecipe> recipe = this.getMatchingRecipe(new RecipeWrapper(this.inventory));
             if(recipe.isPresent() && this.canCook(recipe.get())) {
                 didInventoryChange = this.processCooking(recipe.get(), steamPower);

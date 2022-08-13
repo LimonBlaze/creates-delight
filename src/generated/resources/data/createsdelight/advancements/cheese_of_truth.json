@@ -1,5 +1,5 @@
 {
-  "parent": "createsdelight:creamy",
+  "parent": "createsdelight:dairy_industry",
   "display": {
     "icon": {
       "item": "createsdelight:cheese_wheel"

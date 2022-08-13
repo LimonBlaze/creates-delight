@@ -1,8 +1,7 @@
-package dev.limonblaze.createsdelight.compat.create.mechanicalArm;
+package dev.limonblaze.createsdelight.compat.create.arm;
 
 import com.simibubi.create.content.logistics.block.mechanicalArm.ArmInteractionPoint;
 import com.simibubi.create.content.logistics.block.mechanicalArm.ArmInteractionPointType;
-import dev.limonblaze.createsdelight.common.block.entity.SteamPotBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -13,23 +12,24 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 import org.jetbrains.annotations.Nullable;
+import vectorwing.farmersdelight.common.block.entity.CookingPotBlockEntity;
 
-public class SteamPotPoint extends ArmInteractionPoint {
+public class CookingPotPoint extends ArmInteractionPoint {
     public static final int MEAL_DISPLAY_SLOT = 6;
     public static final int CONTAINER_SLOT = 7;
     public static final int OUTPUT_SLOT = 8;
     
-    public SteamPotPoint(ArmInteractionPointType type, Level level, BlockPos pos, BlockState state) {
+    public CookingPotPoint(ArmInteractionPointType type, Level level, BlockPos pos, BlockState state) {
         super(type, level, pos, state);
     }
     
     @Override
     public ItemStack insert(ItemStack stack, boolean simulate) {
         BlockEntity be = level.getBlockEntity(pos);
-        if(!(be instanceof SteamPotBlockEntity steamPot)) return stack;
+        if(!(be instanceof CookingPotBlockEntity cookingPot)) return stack;
         IItemHandler inventory = getHandler();
         ItemStack currentContainer = inventory.getStackInSlot(CONTAINER_SLOT);
-        ItemStack neededContainer = steamPot.getContainer();
+        ItemStack neededContainer = cookingPot.getContainer();
         if(ItemHandlerHelper.canItemStacksStack(neededContainer, currentContainer) &&
             ItemHandlerHelper.canItemStacksStack(neededContainer, stack))
             return inventory.insertItem(CONTAINER_SLOT, stack, simulate);
@@ -52,8 +52,8 @@ public class SteamPotPoint extends ArmInteractionPoint {
     protected IItemHandler getHandler() {
         if (!cachedHandler.isPresent()) {
             BlockEntity be = level.getBlockEntity(pos);
-            if(!(be instanceof SteamPotBlockEntity steamPot)) return null;
-            cachedHandler = LazyOptional.of(steamPot::getInventory);
+            if(!(be instanceof CookingPotBlockEntity cookingPot)) return null;
+            cachedHandler = LazyOptional.of(cookingPot::getInventory);
         }
         return cachedHandler.orElse(null);
     }
@@ -66,13 +66,13 @@ public class SteamPotPoint extends ArmInteractionPoint {
         
         @Override
         public boolean canCreatePoint(Level level, BlockPos pos, BlockState state) {
-            return level.getBlockEntity(pos) instanceof SteamPotBlockEntity;
+            return level.getBlockEntity(pos) instanceof CookingPotBlockEntity;
         }
         
         @Nullable
         @Override
         public ArmInteractionPoint createPoint(Level level, BlockPos pos, BlockState state) {
-            return new SteamPotPoint(this, level, pos, state);
+            return new CookingPotPoint(this, level, pos, state);
         }
         
     }

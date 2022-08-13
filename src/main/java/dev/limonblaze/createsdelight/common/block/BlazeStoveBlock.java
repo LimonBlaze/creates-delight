@@ -3,6 +3,7 @@ package dev.limonblaze.createsdelight.common.block;
 import com.simibubi.create.content.contraptions.processing.BasinTileEntity;
 import com.simibubi.create.content.contraptions.processing.burner.BlazeBurnerBlock;
 import com.simibubi.create.content.contraptions.wrench.IWrenchable;
+import com.simibubi.create.foundation.advancement.AdvancementBehaviour;
 import com.simibubi.create.foundation.block.ITE;
 import dev.limonblaze.createsdelight.common.block.entity.BlazeStoveBlockEntity;
 import dev.limonblaze.createsdelight.common.registry.CDBlockEntities;
@@ -36,6 +37,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.util.FakePlayer;
+import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.block.StoveBlock;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -66,12 +68,18 @@ public class BlazeStoveBlock extends HorizontalDirectionalBlock implements ITE<B
     }
     
     @Override
-    public void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean isMoving) {
-        if(world.isClientSide) return;
-        BlockEntity blockEntity = world.getBlockEntity(pos.above());
+    public void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean isMoving) {
+        if(level.isClientSide) return;
+        BlockEntity blockEntity = level.getBlockEntity(pos.above());
         if(blockEntity instanceof BasinTileEntity basin) {
             basin.notifyChangeOfContents();
         }
+    }
+    
+    @Override
+    public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+        super.setPlacedBy(level, pos, state, placer, stack);
+        AdvancementBehaviour.setPlacedBy(level, pos, placer);
     }
     
     @Override

@@ -2,7 +2,7 @@ package dev.limonblaze.createsdelight.compat.create;
 
 import com.simibubi.create.content.contraptions.components.deployer.DeployerRecipeSearchEvent;
 import dev.limonblaze.createsdelight.common.recipe.CuttingBoardDeployingRecipe;
-import dev.limonblaze.createsdelight.compat.create.mechanicalArm.CDArmInteractionPointTypes;
+import dev.limonblaze.createsdelight.compat.create.arm.CDArmInteractionPointTypes;
 import dev.limonblaze.createsdelight.compat.create.ponder.CDPonders;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;

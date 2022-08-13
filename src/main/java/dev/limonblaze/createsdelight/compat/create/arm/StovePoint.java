@@ -1,4 +1,4 @@
-package dev.limonblaze.createsdelight.compat.create.mechanicalArm;
+package dev.limonblaze.createsdelight.compat.create.arm;
 
 import com.simibubi.create.content.logistics.block.mechanicalArm.AllArmInteractionPointTypes;
 import com.simibubi.create.content.logistics.block.mechanicalArm.ArmInteractionPoint;

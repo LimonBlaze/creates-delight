@@ -22,12 +22,12 @@ import java.util.List;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-@Mixin(value = ConsumableItem.class, remap = false)
+@Mixin(value = ConsumableItem.class)
 public abstract class ConsumableItemMixin extends Item implements FoodItemHelper {
     
-    @Shadow @Final private boolean hasCustomTooltip;
+    @Shadow(remap = false) @Final private boolean hasCustomTooltip;
     
-    @Shadow @Final private boolean hasFoodEffectTooltip;
+    @Shadow(remap = false) @Final private boolean hasFoodEffectTooltip;
     
     public ConsumableItemMixin(Properties properties) {
         super(properties);

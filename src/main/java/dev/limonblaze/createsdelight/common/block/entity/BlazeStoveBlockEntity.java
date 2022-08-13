@@ -4,7 +4,12 @@ import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.contraptions.fluids.tank.FluidTankBlock;
 import com.simibubi.create.content.contraptions.processing.burner.BlazeBurnerBlock;
 import com.simibubi.create.content.contraptions.processing.burner.BlazeBurnerTileEntity;
+import com.simibubi.create.foundation.advancement.AdvancementBehaviour;
+import com.simibubi.create.foundation.tileEntity.TileEntityBehaviour;
 import com.simibubi.create.foundation.utility.animation.LerpedFloat;
+import dev.limonblaze.createsdelight.common.advancement.AdvancementBehaviourHelper;
+import dev.limonblaze.createsdelight.common.advancement.AdvancementHolder;
+import dev.limonblaze.createsdelight.data.server.Advancements;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -33,6 +38,7 @@ import vectorwing.farmersdelight.common.mixin.accessor.RecipeManagerAccessor;
 import vectorwing.farmersdelight.common.tag.ModTags;
 import vectorwing.farmersdelight.common.utility.ItemUtils;
 
+import java.util.List;
 import java.util.Optional;
 
 public class BlazeStoveBlockEntity extends BlazeBurnerTileEntity {
@@ -55,6 +61,19 @@ public class BlazeStoveBlockEntity extends BlazeBurnerTileEntity {
                 return 1;
             }
         };
+    }
+    
+    @Override
+    public void addBehaviours(List<TileEntityBehaviour> behaviours) {
+        super.addBehaviours(behaviours);
+        AdvancementBehaviour ab = new AdvancementBehaviour(this);
+        ((AdvancementBehaviourHelper)ab).add(
+            Advancements.BLAZERINO,
+            Advancements.SUPER_BLAZERINO,
+            Advancements.BLAZING_BARBECUE,
+            Advancements.OVERCOOKED
+        );
+        behaviours.add(ab);
     }
     
     @Override
@@ -161,6 +180,10 @@ public class BlazeStoveBlockEntity extends BlazeBurnerTileEntity {
         notifyUpdate();
     }
     
+    public void award(AdvancementHolder advancement) {
+        ((AdvancementBehaviourHelper)(this.getBehaviour(AdvancementBehaviour.TYPE))).add(advancement);
+    }
+    
     @Override
     public void applyCreativeFuel() {
         super.applyCreativeFuel();
@@ -235,6 +258,7 @@ public class BlazeStoveBlockEntity extends BlazeBurnerTileEntity {
         }
         
         if(didInventoryChange) {
+            this.award(Advancements.BLAZING_BARBECUE);
             this.notifyUpdate();
         }
     }
@@ -269,6 +293,7 @@ public class BlazeStoveBlockEntity extends BlazeBurnerTileEntity {
         if(didInventoryChange) {
             this.remainingBurnTime += totalUncooked / INVENTORY_SLOT_COUNT;
             this.level.levelEvent(1501, getBlockPos(), 0);
+            this.award(Advancements.OVERCOOKED);
             this.notifyUpdate();
         }
     }
@@ -298,6 +323,11 @@ public class BlazeStoveBlockEntity extends BlazeBurnerTileEntity {
             }
         }
         if(result == null) return;
+        if(times >= 3) {
+            this.award(Advancements.SUPER_BLAZERINO);
+        } else if(times >= 1) {
+            this.award(Advancements.BLAZERINO);
+        }
         for(int i = 0; i < times; ++i) {
             CookingPotBlockEntity.cookingTick(this.level, result.getLeft(), result.getMiddle(), result.getRight());
         }
