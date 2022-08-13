@@ -1,0 +1,22 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    [
+      {
+        "tag": "forge:salt"
+      },
+      {
+        "tag": "forge:dusts/salt"
+      }
+    ],
+    {
+      "fluidTag": "forge:cream",
+      "amount": 500
+    }
+  ],
+  "results": [
+    {
+      "item": "createsdelight:butter"
+    }
+  ]
+}

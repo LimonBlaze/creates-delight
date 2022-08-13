@@ -1,0 +1,38 @@
+{
+  "parent": "createsdelight:cooking_with_steam",
+  "display": {
+    "icon": {
+      "item": "createsdelight:steamed_bun"
+    },
+    "title": {
+      "translate": "createsdelight.advancement.another_kind_of_bread"
+    },
+    "description": {
+      "color": "#DBA213",
+      "translate": "createsdelight.advancement.another_kind_of_bread.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "createsdelight:steamed_bun"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ]
+}

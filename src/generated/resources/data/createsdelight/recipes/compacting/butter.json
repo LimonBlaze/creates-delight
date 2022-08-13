@@ -1,0 +1,14 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "fluidTag": "forge:butter",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "item": "createsdelight:butter"
+    }
+  ]
+}

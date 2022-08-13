@@ -202,7 +202,7 @@ public class CreateRecipeCategoryBuilder<T extends Recipe<?>> {
         ResourceLocation id = new ResourceLocation(modid, name);
         CreateRecipeCategory.Info<T> info = new CreateRecipeCategory.Info<>(
             new mezz.jei.api.recipe.RecipeType<>(id, recipeClass),
-            LangUtils.translateId("recipe", id).build(),
+            LangUtils.translateId("recipe", id).toComponent(),
             background, icon, recipesSupplier, catalysts);
         return factory.create(info);
     }

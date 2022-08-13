@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "createsdelight:incomplete_egg_sandwich",
+    "createsdelight:incomplete_chicken_sandwich",
+    "createsdelight:incomplete_hot_dog",
+    "createsdelight:incomplete_bacon_sandwich",
+    "createsdelight:incomplete_cod_sandwich",
+    "createsdelight:incomplete_salmon_sandwich"
+  ]
+}

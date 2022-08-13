@@ -1,9 +1,11 @@
 package dev.limonblaze.createsdelight.common.registry;
 
 import com.simibubi.create.AllItems;
+import dev.limonblaze.createsdelight.CreatesDelight;
 import dev.limonblaze.createsdelight.common.item.DrinkableBucketItem;
 import dev.limonblaze.createsdelight.compat.ModHelper;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.Tag;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -50,6 +52,11 @@ public class CDTags {
         
         public static final TagKey<Item> UPRIGHT_ON_BELT = create("upright_on_belt");
         public static final TagKey<Item> UPRIGHT_ON_DEPLOYER = create("upright_on_deployer");
+        public static final TagKey<Item> STEAMED_STUFFED_BUNS = createsdelight("steamed_stuffed_buns");
+        public static final TagKey<Item> INCOMPLETE_FOOD$HAMBURGERS = createsdelight("incomplete_food/hamburgers");
+        public static final TagKey<Item> INCOMPLETE_FOOD$PIES = createsdelight("incomplete_food/pies");
+        public static final TagKey<Item> INCOMPLETE_FOOD$SANDWICHES = createsdelight("incomplete_food/sandwiches");
+        public static final TagKey<Item> INCOMPLETE_FOOD$WRAPS = createsdelight("incomplete_food/wraps");
         public static final TagKey<Item> BUTTER = forge("butter");
         public static final TagKey<Item> CABBAGES = forge("cabbages");
         public static final TagKey<Item> CARROTS = forge("carrots");
@@ -61,29 +68,28 @@ public class CDTags {
         public static final TagKey<Item> RICE = forge("rice");
         public static final TagKey<Item> SALT = forge("salt");
         public static final TagKey<Item> TOMATOES = forge("tomatoes");
+        public static final TagKey<Item> WHEAT_DOUGH = forge("wheat_dough");
         public static final TagKey<Item> WHEAT_FLOUR = forge("wheat_flour");
         public static final TagKey<Item> BOTTLES$YOGURT = forge("bottles/yogurt");
         public static final TagKey<Item> BOTTLES$CREAM = forge("bottles/cream");
         public static final TagKey<Item> BOTTLES$SOUR_CREAM = forge("bottles/sour_cream");
-        public static final TagKey<Item> BUCKETS$EGG = forge("buckets/egg");
-        public static final TagKey<Item> BUCKETS$YOGURT = forge("buckets/yogurt");
-        public static final TagKey<Item> BUCKETS$CREAM = forge("buckets/cream");
-        public static final TagKey<Item> BUCKETS$SOUR_CREAM = forge("buckets/sour_cream");
-        public static final TagKey<Item> BUCKETS$CHEESE = forge("buckets/cheese");
-        public static final TagKey<Item> BUCKETS$BUTTER = forge("buckets/butter");
-        public static final TagKey<Item> BUCKETS$TOMATO_SAUCE = forge("buckets/tomato_sauce");
+        public static final TagKey<Item> DOUGH$WHEAT = forge("dough/wheat");
         public static final TagKey<Item> DUSTS$SALT = forge("dusts/salt");
         public static final TagKey<Item> FOODS$HAS_CONTAINER = forge("foods/has_container");
         public static final TagKey<Item> STORAGE_BLOCKS$CHEESE = forge("storage_blocks/cheese");
         public static final TagKey<Item> STORAGE_BLOCKS$SALT = forge("storage_blocks/salt");
         public static final TagKey<Item> STORAGE_BLOCKS$SUGAR = forge("storage_blocks/sugar");
         
-        public static TagKey<Item> forge(String path) {
-            return optional(ForgeRegistries.ITEMS, ModHelper.FG.asResource(path));
-        }
-    
         public static TagKey<Item> create(String path) {
             return optional(ForgeRegistries.ITEMS, ModHelper.CR.asResource(path));
+        }
+    
+        public static TagKey<Item> createsdelight(String path) {
+            return optional(ForgeRegistries.ITEMS, CreatesDelight.asResource(path));
+        }
+    
+        public static TagKey<Item> forge(String path) {
+            return optional(ForgeRegistries.ITEMS, ModHelper.FG.asResource(path));
         }
     
         @SuppressWarnings("deprecation")
@@ -114,7 +120,9 @@ public class CDTags {
             registrate.itemTagFromItems(POTATOES, Items.POTATO);
             registrate.itemTagFromSuppliers(RICE, ModItems.RICE);
             registrate.itemTagFromSuppliers(TOMATOES, ModItems.TOMATO);
+            registrate.itemTagFromSuppliers(WHEAT_DOUGH, () -> AllItems.DOUGH.get(), ModItems.WHEAT_DOUGH);
             registrate.itemTagFromSuppliers(WHEAT_FLOUR, () -> AllItems.WHEAT_FLOUR.get());
+            registrate.itemTagFromSuppliers(DOUGH$WHEAT, ModItems.WHEAT_DOUGH);
             registrate.itemTagFromTags(Tags.Items.DUSTS, DUSTS$SALT);
             registrate.itemTagFromTags(Tags.Items.STORAGE_BLOCKS,
                 STORAGE_BLOCKS$CHEESE,

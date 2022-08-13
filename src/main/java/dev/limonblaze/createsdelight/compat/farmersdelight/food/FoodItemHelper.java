@@ -54,7 +54,7 @@ public interface FoodItemHelper {
     @OnlyIn(Dist.CLIENT)
     default List<Component> getCustomTooltips(ItemStack stack, @Nullable Level level, TooltipFlag flag) {
         List<Component> components = new ArrayList<>();
-        components.add(LangUtils.translateId("tooltip", self().getRegistryName()).build().withStyle(ChatFormatting.BLUE));
+        components.add(LangUtils.translateId("tooltip", self().getRegistryName()).toComponent().withStyle(ChatFormatting.BLUE));
         return components;
     }
     
@@ -95,7 +95,9 @@ public interface FoodItemHelper {
             if(showChance) {
                 float chance = effectEntry.getSecond();
                 if(chance < 1) {
-                    effectTooltip.append(" (" + ItemStack.ATTRIBUTE_MODIFIER_FORMAT.format(100 * effectEntry.getSecond()) + "%)");
+                    effectTooltip.append(LangUtils.translate("tooltip")
+                        .suffix("food").suffix("effect").suffix("chance")
+                        .arg(ItemStack.ATTRIBUTE_MODIFIER_FORMAT.format(100 * effectEntry.getSecond())).toComponent());
                 }
             }
             tooltips.add(effectTooltip.withStyle(effect.getCategory().getTooltipFormatting()));
@@ -135,8 +137,8 @@ public interface FoodItemHelper {
     default Component getUseAnimationTooltip(ItemStack stack, @Nullable Level level, TooltipFlag flag) {
         LangUtils.Builder builder = LangUtils.translate("tooltip").suffix("food");
         return (self().getUseAnimation(stack) == UseAnim.DRINK
-            ? builder.suffix("when_drank").build()
-            : builder.suffix("when_ate").build()).withStyle(ChatFormatting.GRAY);
+            ? builder.suffix("when_drank").toComponent()
+            : builder.suffix("when_ate").toComponent()).withStyle(ChatFormatting.GRAY);
     }
     
 }

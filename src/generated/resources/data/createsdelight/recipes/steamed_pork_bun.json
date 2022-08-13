@@ -1,0 +1,42 @@
+{
+  "type": "createsdelight:steam_pot",
+  "group": "",
+  "ingredients": [
+    [
+      {
+        "tag": "forge:wheat_dough"
+      },
+      {
+        "tag": "forge:dough/wheat"
+      }
+    ],
+    {
+      "tag": "forge:raw_pork"
+    },
+    [
+      {
+        "tag": "forge:cabbages"
+      },
+      {
+        "tag": "forge:crops/cabbage"
+      },
+      {
+        "tag": "forge:salad_ingredients/cabbage"
+      }
+    ],
+    [
+      {
+        "tag": "forge:salt"
+      },
+      {
+        "tag": "forge:dusts/salt"
+      }
+    ]
+  ],
+  "result": {
+    "item": "createsdelight:steamed_pork_bun",
+    "nbt": "{}"
+  },
+  "experience": 0.35,
+  "cookingtime": 200
+}

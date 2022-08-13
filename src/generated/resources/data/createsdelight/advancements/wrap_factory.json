@@ -1,0 +1,36 @@
+{
+  "parent": "createsdelight:hamburger_factory",
+  "display": {
+    "icon": {
+      "item": "farmersdelight:mutton_wrap"
+    },
+    "title": {
+      "translate": "createsdelight.advancement.wrap_factory"
+    },
+    "description": {
+      "color": "#DBA213",
+      "translate": "createsdelight.advancement.wrap_factory.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "createsdelight:incomplete_food/wraps"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ]
+}

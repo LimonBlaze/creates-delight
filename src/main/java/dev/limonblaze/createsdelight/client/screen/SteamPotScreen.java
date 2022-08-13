@@ -48,8 +48,8 @@ public class SteamPotScreen extends AbstractContainerScreen<SteamPotContainerMen
             int steamPower = this.menu.getSteamPower();
             LangUtils.Builder builder = LangUtils.translate("container").suffix("steam_pot");
             tooltip.add(steamPower > 0
-                ? builder.suffix("steam_powered").build().append(Lang.translateDirect("boiler.lvl", String.valueOf(steamPower)).withStyle(ChatFormatting.GREEN))
-                : builder.suffix("not_powered").build()
+                ? builder.suffix("steam_powered").toComponent().append(Lang.translateDirect("boiler.lvl", String.valueOf(steamPower)).withStyle(ChatFormatting.GREEN))
+                : builder.suffix("not_powered").toComponent()
             );
             this.renderComponentTooltip(ms, tooltip, mouseX, mouseY);
         }

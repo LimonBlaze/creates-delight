@@ -5,6 +5,7 @@ import dev.limonblaze.createsdelight.client.model.CDBlockPartials;
 import dev.limonblaze.createsdelight.common.registry.*;
 import dev.limonblaze.createsdelight.compat.create.CDCreatePlugin;
 import dev.limonblaze.createsdelight.compat.farmersdelight.CDFarmersDelightPlugin;
+import dev.limonblaze.createsdelight.data.server.Advancements;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.api.distmarker.Dist;
@@ -12,6 +13,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,6 +56,10 @@ public class CreatesDelight {
     
     private static void commonBootstrap(IEventBus mod, IEventBus forge) {
         mod.addGenericListener(RecipeSerializer.class, CDRecipeTypes::register);
+        mod.<FMLCommonSetupEvent>addListener(event -> event.enqueueWork(() -> {
+            Advancements.register();
+            CDTriggers.register();
+        }));
     }
     
     private static void clientBootstrap(IEventBus mod, IEventBus forge) {

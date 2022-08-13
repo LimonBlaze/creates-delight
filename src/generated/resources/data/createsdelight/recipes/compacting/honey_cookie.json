@@ -1,0 +1,32 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    [
+      {
+        "tag": "forge:wheat_flour"
+      },
+      {
+        "tag": "forge:flour/wheat"
+      }
+    ],
+    [
+      {
+        "tag": "forge:wheat_flour"
+      },
+      {
+        "tag": "forge:flour/wheat"
+      }
+    ],
+    {
+      "fluidTag": "forge:honey",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "item": "farmersdelight:honey_cookie",
+      "count": 8
+    }
+  ],
+  "heatRequirement": "heated"
+}

@@ -1,0 +1,30 @@
+{
+  "parent": "createsdelight:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:milk_bucket"
+    },
+    "title": {
+      "translate": "createsdelight.advancement.dairy_industry"
+    },
+    "description": {
+      "color": "#DBA213",
+      "translate": "createsdelight.advancement.dairy_industry.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "0": {
+      "trigger": "createsdelight:dairy_industry_builtin",
+      "conditions": {}
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ]
+}

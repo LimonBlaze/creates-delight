@@ -32,10 +32,14 @@ public class LangUtils {
             return this;
         }
         
-        public TranslatableComponent build() {
+        public TranslatableComponent toComponent() {
+            return new TranslatableComponent(this.toKey(), args.toArray());
+        }
+        
+        public String toKey() {
             StringJoiner joiner = new StringJoiner(".");
-            key.forEach(joiner::add);
-            return new TranslatableComponent(joiner.toString(), args.toArray());
+            this.key.forEach(joiner::add);
+            return joiner.toString();
         }
         
     }

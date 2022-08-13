@@ -1,0 +1,31 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    [
+      {
+        "tag": "forge:wheat_flour"
+      },
+      {
+        "tag": "forge:flour/wheat"
+      }
+    ],
+    [
+      {
+        "tag": "forge:wheat_flour"
+      },
+      {
+        "tag": "forge:flour/wheat"
+      }
+    ]
+  ],
+  "results": [
+    {
+      "item": "farmersdelight:sweet_berry_cookie",
+      "count": 8
+    }
+  ],
+  "heatRequirement": "heated"
+}

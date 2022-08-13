@@ -4,11 +4,14 @@ import com.google.gson.JsonElement;
 import com.simibubi.create.foundation.utility.FilesHelper;
 import com.simibubi.create.foundation.utility.Lang;
 import dev.limonblaze.createsdelight.CreatesDelight;
+import dev.limonblaze.createsdelight.data.server.Advancements;
 
 import java.util.function.Supplier;
 
 public enum PartialLangProvider {
-    INTERFACE("UI & Messages");
+    ADVANCEMENTS("Advancements", Advancements::populateLangEntries),
+    INTERFACE("UI & Messages"),
+    TOOLTIPS("Item Descriptions");
     
     private final String display;
     private final Supplier<JsonElement> provider;

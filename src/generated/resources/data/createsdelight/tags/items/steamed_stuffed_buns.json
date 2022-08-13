@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "createsdelight:steamed_custard_bun",
+    "createsdelight:steamed_chicken_bun",
+    "createsdelight:steamed_pork_bun",
+    "createsdelight:steamed_beef_bun",
+    "createsdelight:steamed_mutton_bun"
+  ]
+}

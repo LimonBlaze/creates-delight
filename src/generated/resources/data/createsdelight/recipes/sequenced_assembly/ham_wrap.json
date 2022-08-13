@@ -1,0 +1,66 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "tag": "forge:bread"
+  },
+  "transitionalItem": {
+    "item": "createsdelight:incomplete_ham_wrap"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_ham_wrap"
+        },
+        {
+          "item": "farmersdelight:smoked_ham"
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_ham_wrap"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_ham_wrap"
+        },
+        {
+          "tag": "forge:salad_ingredients"
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_ham_wrap"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "createsdelight:incomplete_ham_wrap"
+        },
+        {
+          "fluidTag": "forge:cream",
+          "amount": 250
+        }
+      ],
+      "results": [
+        {
+          "item": "createsdelight:incomplete_ham_wrap"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "createsdelight:ham_wrap"
+    }
+  ],
+  "loops": 1
+}

@@ -64,22 +64,15 @@
       ]
     },
     {
-      "type": "create:deploying",
+      "type": "create:filling",
       "ingredients": [
         {
           "item": "createsdelight:incomplete_cheese_burger"
         },
-        [
-          {
-            "tag": "forge:tomatoes"
-          },
-          {
-            "tag": "forge:vegetables/tomato"
-          },
-          {
-            "tag": "forge:crops/tomato"
-          }
-        ]
+        {
+          "fluidTag": "forge:tomato_sauce",
+          "amount": 250
+        }
       ],
       "results": [
         {

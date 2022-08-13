@@ -5,9 +5,12 @@ import com.simibubi.create.AllItems;
 import com.simibubi.create.compat.jei.category.CreateRecipeCategory;
 import dev.limonblaze.createsdelight.CreatesDelight;
 import dev.limonblaze.createsdelight.common.recipe.CuttingBoardDeployingRecipe;
+import dev.limonblaze.createsdelight.common.recipe.SteamPotRecipe;
+import dev.limonblaze.createsdelight.common.registry.CDBlocks;
 import dev.limonblaze.createsdelight.common.registry.CDRecipeTypes;
 import dev.limonblaze.createsdelight.compat.jei.category.CreateRecipeCategoryBuilder;
 import dev.limonblaze.createsdelight.compat.jei.category.CuttingBoardDeployingCategory;
+import dev.limonblaze.createsdelight.compat.jei.category.SteamPotCategory;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.recipe.category.IRecipeCategory;
@@ -35,7 +38,7 @@ public class CDJeiPlugin implements IModPlugin {
     protected final List<CreateRecipeCategory<?>> allCategories = new ArrayList<>();
     protected IIngredientManager ingredientManager;
     
-    private void loadCategories() {
+    private void loadCategories(IRecipeCategoryRegistration registration) {
         allCategories.clear();
         allCategories.add(
             builder(CuttingBoardDeployingRecipe.class)
@@ -48,6 +51,13 @@ public class CDJeiPlugin implements IModPlugin {
                 .emptyBackground(177, 70)
                 .build("cutting_board_deploying", CuttingBoardDeployingCategory::new)
         );
+        allCategories.add(
+            builder(SteamPotRecipe.class)
+                .addTypedRecipes(CDRecipeTypes.STEAM_POT)
+                .catalyst(CDBlocks.STEAM_POT::get)
+                .itemIcon(CDBlocks.STEAM_POT.get())
+                .build("steam_cooking", info -> new SteamPotCategory(info, registration.getJeiHelpers().getGuiHelper()))
+        );
     }
     
     @Override
@@ -57,7 +67,7 @@ public class CDJeiPlugin implements IModPlugin {
     
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
-        loadCategories();
+        loadCategories(registration);
         registration.addRecipeCategories(allCategories.toArray(IRecipeCategory[]::new));
     }
     

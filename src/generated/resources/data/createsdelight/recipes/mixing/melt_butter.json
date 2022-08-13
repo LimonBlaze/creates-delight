@@ -1,0 +1,15 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "createsdelight:butter"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "createsdelight:butter",
+      "amount": 250
+    }
+  ],
+  "heatRequirement": "heated"
+}

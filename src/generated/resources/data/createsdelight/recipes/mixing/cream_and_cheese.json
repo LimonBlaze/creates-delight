@@ -12,13 +12,13 @@
     {
       "fluid": "minecraft:milk",
       "nbt": {},
-      "amount": 250
+      "amount": 500
     }
   ],
   "results": [
     {
       "fluid": "createsdelight:cream",
-      "amount": 125
+      "amount": 250
     },
     {
       "fluid": "createsdelight:cheese",

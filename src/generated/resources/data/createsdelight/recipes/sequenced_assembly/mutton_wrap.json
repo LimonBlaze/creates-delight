@@ -4,14 +4,14 @@
     "tag": "forge:bread"
   },
   "transitionalItem": {
-    "item": "createsdelight:incomplete_salmon_sandwich"
+    "item": "createsdelight:incomplete_mutton_wrap"
   },
   "sequence": [
     {
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "createsdelight:incomplete_salmon_sandwich"
+          "item": "createsdelight:incomplete_mutton_wrap"
         },
         {
           "tag": "forge:cooked_mutton"
@@ -19,7 +19,7 @@
       ],
       "results": [
         {
-          "item": "createsdelight:incomplete_salmon_sandwich"
+          "item": "createsdelight:incomplete_mutton_wrap"
         }
       ]
     },
@@ -27,7 +27,7 @@
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "createsdelight:incomplete_salmon_sandwich"
+          "item": "createsdelight:incomplete_mutton_wrap"
         },
         {
           "tag": "forge:salad_ingredients"
@@ -35,7 +35,7 @@
       ],
       "results": [
         {
-          "item": "createsdelight:incomplete_salmon_sandwich"
+          "item": "createsdelight:incomplete_mutton_wrap"
         }
       ]
     },
@@ -43,7 +43,7 @@
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "createsdelight:incomplete_salmon_sandwich"
+          "item": "createsdelight:incomplete_mutton_wrap"
         },
         [
           {
@@ -59,7 +59,7 @@
       ],
       "results": [
         {
-          "item": "createsdelight:incomplete_salmon_sandwich"
+          "item": "createsdelight:incomplete_mutton_wrap"
         }
       ]
     }

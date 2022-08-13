@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "createsdelight:steam_pot"
+    },
+    "title": {
+      "translate": "createsdelight.advancement.root"
+    },
+    "description": {
+      "color": "#DBA213",
+      "translate": "createsdelight.advancement.root.desc"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false,
+    "background": "createsdelight:textures/gui/advancements.png"
+  },
+  "criteria": {
+    "0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {}
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ]
+}

@@ -41,8 +41,12 @@ public class CommonIngredients {
         new Ingredient.TagValue(ForgeTags.VEGETABLES_TOMATO),
         new Ingredient.TagValue(ForgeTags.CROPS_TOMATO)
     ));
+    public static final Ingredient WHEAT_DOUGH = Ingredient.fromValues(Stream.of(
+        new Ingredient.TagValue(CDTags.ItemTag.WHEAT_DOUGH),
+        new Ingredient.TagValue(CDTags.ItemTag.DOUGH$WHEAT)
+    ));
     public static final Ingredient WHEAT_FLOUR = Ingredient.fromValues(Stream.of(
-        new Ingredient.TagValue(CDTags.ItemTag.forge("wheat_flour")),
+        new Ingredient.TagValue(CDTags.ItemTag.WHEAT_FLOUR),
         new Ingredient.TagValue(CDTags.ItemTag.forge("flour/wheat"))
     ));
     

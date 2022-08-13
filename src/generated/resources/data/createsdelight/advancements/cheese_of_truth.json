@@ -1,0 +1,38 @@
+{
+  "parent": "createsdelight:creamy",
+  "display": {
+    "icon": {
+      "item": "createsdelight:cheese_wheel"
+    },
+    "title": {
+      "translate": "createsdelight.advancement.cheese_of_truth"
+    },
+    "description": {
+      "color": "#DBA213",
+      "translate": "createsdelight.advancement.cheese_of_truth.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "createsdelight:cheese_wheel"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ]
+}

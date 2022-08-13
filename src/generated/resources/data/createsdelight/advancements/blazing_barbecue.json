@@ -1,0 +1,30 @@
+{
+  "parent": "createsdelight:chef_blaze",
+  "display": {
+    "icon": {
+      "item": "farmersdelight:barbecue_stick"
+    },
+    "title": {
+      "translate": "createsdelight.advancement.blazing_barbecue"
+    },
+    "description": {
+      "color": "#DBA213",
+      "translate": "createsdelight.advancement.blazing_barbecue.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "0": {
+      "trigger": "createsdelight:blazing_barbecue_builtin",
+      "conditions": {}
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ]
+}

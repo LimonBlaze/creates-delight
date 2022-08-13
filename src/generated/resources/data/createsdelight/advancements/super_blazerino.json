@@ -1,0 +1,30 @@
+{
+  "parent": "createsdelight:blazerino",
+  "display": {
+    "icon": {
+      "item": "minecraft:soul_torch"
+    },
+    "title": {
+      "translate": "createsdelight.advancement.super_blazerino"
+    },
+    "description": {
+      "color": "#DBA213",
+      "translate": "createsdelight.advancement.super_blazerino.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "0": {
+      "trigger": "createsdelight:super_blazerino_builtin",
+      "conditions": {}
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ]
+}

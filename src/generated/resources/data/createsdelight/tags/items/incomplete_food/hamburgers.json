@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "createsdelight:incomplete_hamburger",
+    "createsdelight:incomplete_cheese_burger",
+    "createsdelight:incomplete_pork_omelette_burger"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "createsdelight:steam_pot",
+  "group": "",
+  "ingredients": [
+    [
+      {
+        "tag": "forge:wheat_dough"
+      },
+      {
+        "tag": "forge:dough/wheat"
+      }
+    ]
+  ],
+  "result": {
+    "item": "createsdelight:steamed_bun",
+    "nbt": "{}"
+  },
+  "experience": 0.1,
+  "cookingtime": 200
+}

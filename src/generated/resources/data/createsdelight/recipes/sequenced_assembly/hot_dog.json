@@ -54,25 +54,8 @@
           "item": "createsdelight:incomplete_hot_dog"
         },
         {
-          "fluidTag": "forge:cheese",
-          "amount": 125
-        }
-      ],
-      "results": [
-        {
-          "item": "createsdelight:incomplete_hot_dog"
-        }
-      ]
-    },
-    {
-      "type": "create:filling",
-      "ingredients": [
-        {
-          "item": "createsdelight:incomplete_hot_dog"
-        },
-        {
           "fluidTag": "forge:sour_cream",
-          "amount": 125
+          "amount": 250
         }
       ],
       "results": [

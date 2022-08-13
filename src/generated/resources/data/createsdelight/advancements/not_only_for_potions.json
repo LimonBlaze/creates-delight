@@ -1,0 +1,43 @@
+{
+  "parent": "createsdelight:butter_flies",
+  "display": {
+    "icon": {
+      "item": "minecraft:nether_wart"
+    },
+    "title": {
+      "translate": "createsdelight.advancement.not_only_for_potions"
+    },
+    "description": {
+      "color": "#DBA213",
+      "translate": "createsdelight.advancement.not_only_for_potions.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "createsdelight:yogurt_bottle"
+            ]
+          },
+          {
+            "items": [
+              "createsdelight:sour_cream_bottle"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "parent": "createsdelight:cheese_of_truth",
+  "display": {
+    "icon": {
+      "item": "createsdelight:butter"
+    },
+    "title": {
+      "translate": "createsdelight.advancement.butter_flies"
+    },
+    "description": {
+      "color": "#DBA213",
+      "translate": "createsdelight.advancement.butter_flies.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "createsdelight:butter"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ]
+}

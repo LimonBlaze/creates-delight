@@ -499,7 +499,7 @@ public class SteamPotBlockEntity extends SmartTileEntity implements MenuProvider
     }
     
     public Component getName() {
-        return this.customName != null ? this.customName : LangUtils.translate("container").suffix("steam_pot").build();
+        return this.customName != null ? this.customName : LangUtils.translate("container").suffix("steam_pot").toComponent();
     }
     
     public Component getDisplayName() {

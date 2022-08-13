@@ -1,0 +1,11 @@
+{
+
+  "createsdelight.tooltip.food.when_ate": "When Ate:",
+  "createsdelight.tooltip.food.when_drank": "When Drank:",
+  "createsdelight.tooltip.food.effect.chance": "(%1$s%% Chance)",
+  "createsdelight.tooltip.food.effect.clear_one": "Clears 1 Effect",
+  "createsdelight.tooltip.food.effect.clear_all": "Clears All Effects",
+  "createsdelight.tooltip.food.effect.in_nether": "Applies Additional Effects in Nether",
+  "createsdelight.tooltip.food.effect.underwater": "Applies Additional Effects Underwater"
+
+}

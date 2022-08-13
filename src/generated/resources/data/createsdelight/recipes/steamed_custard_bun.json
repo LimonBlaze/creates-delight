@@ -1,0 +1,32 @@
+{
+  "type": "createsdelight:steam_pot",
+  "group": "",
+  "ingredients": [
+    [
+      {
+        "tag": "forge:wheat_dough"
+      },
+      {
+        "tag": "forge:dough/wheat"
+      }
+    ],
+    {
+      "tag": "forge:eggs"
+    },
+    {
+      "tag": "forge:butter"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "tag": "forge:milk"
+    }
+  ],
+  "result": {
+    "item": "createsdelight:steamed_custard_bun",
+    "nbt": "{}"
+  },
+  "experience": 0.35,
+  "cookingtime": 200
+}

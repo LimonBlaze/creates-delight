@@ -1,0 +1,36 @@
+{
+  "parent": "createsdelight:another_kind_of_bread",
+  "display": {
+    "icon": {
+      "item": "createsdelight:steamed_pork_bun"
+    },
+    "title": {
+      "translate": "createsdelight.advancement.another_kind_of_pie"
+    },
+    "description": {
+      "color": "#DBA213",
+      "translate": "createsdelight.advancement.another_kind_of_pie.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "createsdelight:steamed_stuffed_buns"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "parent": "createsdelight:root",
+  "display": {
+    "icon": {
+      "item": "createsdelight:blaze_stove"
+    },
+    "title": {
+      "translate": "createsdelight.advancement.chef_blaze"
+    },
+    "description": {
+      "color": "#DBA213",
+      "translate": "createsdelight.advancement.chef_blaze.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "0": {
+      "trigger": "createsdelight:chef_blaze_builtin",
+      "conditions": {}
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ]
+}

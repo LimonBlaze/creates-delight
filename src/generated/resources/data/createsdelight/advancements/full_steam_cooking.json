@@ -1,0 +1,30 @@
+{
+  "parent": "createsdelight:another_kind_of_pie",
+  "display": {
+    "icon": {
+      "item": "createsdelight:steam_pot"
+    },
+    "title": {
+      "translate": "createsdelight.advancement.full_steam_cooking"
+    },
+    "description": {
+      "color": "#DBA213",
+      "translate": "createsdelight.advancement.full_steam_cooking.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "0": {
+      "trigger": "createsdelight:full_steam_cooking_builtin",
+      "conditions": {}
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ]
+}

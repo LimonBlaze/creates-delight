@@ -1,0 +1,30 @@
+{
+  "parent": "createsdelight:root",
+  "display": {
+    "icon": {
+      "item": "createsdelight:steam_pot"
+    },
+    "title": {
+      "translate": "createsdelight.advancement.cooking_with_steam"
+    },
+    "description": {
+      "color": "#DBA213",
+      "translate": "createsdelight.advancement.cooking_with_steam.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "0": {
+      "trigger": "createsdelight:cooking_with_steam_builtin",
+      "conditions": {}
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ]
+}
